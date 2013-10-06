@@ -94,7 +94,7 @@ if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
 		  \ | wincmd p | diffthis
 endif
-set guifont=微软雅黑Monaco\ 10
+set guifont=Monospace\ 10
 set guioptions-=m         "turn off menu bar
 set guioptions-=T         "turn off toolbar
 set guioptions-=L         "turn off scroll bar
@@ -134,7 +134,7 @@ set cindent               "indent like C
 set hlsearch              "highlight search
 set incsearch             "sync search
 set list                  "show tab 
-set listchars=tab:>-,trail:-   "tab=| space= 
+set listchars=tab:>>,trail:-   "tab=> space= 
 set smarttab
 
 "about display
