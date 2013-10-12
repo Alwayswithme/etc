@@ -1,17 +1,57 @@
 package other;
 
+import java.util.LinkedList;
+import java.util.ListIterator;
+
 public class Josephus {
 
+	private static final int N = 67;
+	private static final int FIRST = 5;
+	private static final int STEP = 3;
 	public static void main(String[] args) {
-		int peopleNumber = 8;
-		int start = 1, count = 3;
+		int peopleNumber = N;
+		int start = FIRST, count = STEP;
 		CycleLinkedList c = new CycleLinkedList(peopleNumber);
 		c.setCount(count);
 		c.setStart(start);
 		c.play();
-		
+		josephus();
 	}
-
+	// another solve
+	public static void josephus() {
+		LinkedList<Integer> total = new LinkedList<Integer>();
+		int last=0;
+		
+		for (int i = 0; i < N; i++) {
+			total.add(i+1);
+		}
+		ListIterator<Integer> it = total.listIterator();
+		while(it.next() !=FIRST) 
+			;
+		it.previous();
+		while (it.hasNext() || it.hasPrevious()) {
+			for (int i = 1; i< STEP; i++) {
+				if (it.hasNext()) {
+					it.next();
+				}else {
+					while(it.hasPrevious())
+						it.previous();
+					it.next();
+				}
+			}
+			if (it.hasNext()) {
+				last = it.next();
+			}else {
+				while(it.hasPrevious())
+					it.previous();
+				last = it.next();
+			}
+			//System.out.printf("%d is out \n", last);
+			it.remove();
+		}
+		System.out.println("last one is " + last);
+	}
+	
 }
 class CycleLinkedList {
 	// the one  start to count
@@ -52,7 +92,7 @@ class CycleLinkedList {
 			for(int i = 0; i < count-1; i++){ 
 				cursor = cursor.next;
 			}
-			System.out.printf("%d is out \n", cursor.id);
+			//System.out.printf("%d is out \n", cursor.id);
 			length--;
 			cursor.prev.next = cursor.next;
 			cursor.next.prev = cursor.prev;
