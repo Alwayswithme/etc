@@ -6,7 +6,9 @@ import java.util.HashSet;
   
 public class ExtractSummary {  
   
-    /** 
+    private static String word;
+
+	/** 
      * @param args 
      */  
     public static void main(String[] args) {  
@@ -28,7 +30,7 @@ public class ExtractSummary {
         while (end < words.length) {  
             // expand end  
             for (; end < words.length; end++) {  
-                String word = words[end];  
+                word = words[end];  
                 if (keywordSet.contains(word)) {  
                     if (keywordMap.containsKey(word)) {  
                         keywordMap.put(word, keywordMap.get(word) + 1);  
@@ -50,7 +52,7 @@ public class ExtractSummary {
   
             // shrink start  
             for (; start < end; start++) {  
-                String word = words[start];  
+                word = words[start];  
                 if (keywordSet.contains(word)) {  
                     Integer value = keywordMap.remove(word);  
                     if (value != 1) {  

@@ -24,8 +24,7 @@ public class Power {
 			return pow(x*x, n/2) * x;
 	}
 
-	private static boolean isEven(int n) {
-		// TODO Auto-generated method stub
+	public static boolean isEven(int n) {
 		if ((n&1) == 1)
 			return true;
 		else
