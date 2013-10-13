@@ -10,7 +10,7 @@ public class SortMethod {
 		System.out.println(Arrays.toString(array));
 	}
 	public static <T extends Comparable<? super T>> void quick(Integer[] array) {
-		quick(array, 0, array.length-1);
+		quick(array, 0, array.length);
 	}
 	/**
 	 * bubble sort(stable): average O(n^2), worst O(n^2), best O(n)
@@ -76,7 +76,7 @@ public class SortMethod {
 	public static <T extends Comparable<? super T>> void quick(T[] arr, int left, int right) {
 		while(left < right) {
 		
-		int last = partition(arr, left, right);
+		int last = partition(arr, left, right-1);
 		
 		quick(arr, left, last-1);
 		left = last+1;		// 尾递归
