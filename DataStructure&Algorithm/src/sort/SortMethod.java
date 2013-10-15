@@ -5,8 +5,8 @@ import java.util.Arrays;
 public class SortMethod {
 
 	public static void main(String[] args) {
-		Integer[]  array = {3,4,1,4,12,5,6,9,11,53,13,55,36,90,38,95,74};
-		quick(array);
+		Integer[]  array = {4, 2, 3, 5, 1, 10, 38, -1, 2, 0, 33, 95, -21, 25};
+		heap(array);
 		System.out.println(Arrays.toString(array));
 	}
 	public static <T extends Comparable<? super T>> void quick(Integer[] array) {
@@ -43,7 +43,7 @@ public class SortMethod {
 	}
 
 	/**
-	 * shell sort(unstable): average O(nlogn), worst O(n^2), best(n^2)
+	 * shell sort(unstable): average O(nlogn), worst O(n^2), best(n)
 	 */
 	public static <T extends Comparable<? super T>> void shell(T[] array) {
 		int len,gap;
@@ -100,7 +100,31 @@ public class SortMethod {
 		swap(arr, last, left);
 		return last;
 	}
-
+	/**
+	 * heap sort(stable) : average(nlogn), worst(nlogn), best(worst)
+	 */
+	public static <T extends Comparable<? super T>> void heap(T[] a) {
+		int len = a.length - 1;
+		for (int i = len/2; i >= 0; i--) 
+			adjust(a, i, len);
+		for(int i=len; i > 0;) {
+			swap(a, 0, i);
+			adjust(a, 0, --i);
+		}
+	}
+	public static <T extends Comparable<? super T>> void adjust(T[] array, int from, int to) {
+		int child;
+		for (T temp = array[from];(child=(2*from + 1)) <= to; from = child) {
+			if (child<to && array[child].compareTo(array[child+1]) < 0)
+				++child;
+			if (temp.compareTo(array[child]) >= 0)		// greater than children node, break
+				break;
+			else {										// else swap it
+				array[from] = array[child];
+				array[child] = temp;
+			}
+		}
+	}
 	public static <T> void swap(T[] array, int i, int j) {
 		T temp = array[i];
 		array[i] = array[j];
