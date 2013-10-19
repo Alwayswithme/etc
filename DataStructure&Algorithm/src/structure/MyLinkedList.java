@@ -1,7 +1,5 @@
 package structure;
 
-import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.ListIterator;
 
 public class MyLinkedList<T> implements Iterable<T> {
