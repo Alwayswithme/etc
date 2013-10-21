@@ -1,0 +1,56 @@
+#NAME Phoenix Yip
+#DESC South China Agricultural University, Guangzhou
+#EMAIL phx13ye@gmail.com
+#PHONE +86 158-8996-4078
+#FINALLY Thanks For Your Reading
+
+_Education_
+#SUBTITLE Sep, 2010-present
+#BEGIN#
+<strong>South China Agricultural University</strong>
+College of Life Sciences,  Major in Biotechnology&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GPA: 3.3/5
+Class cadre:Commissary in charge of information,
+Take responsibility for convey feedback between student and teacher.
+Candidate for Bachelor of Science, Expected Graduation:July 2014
+#END#
+
+_Community_
+#SUBTITLE Douban Book
+#LINK book.douban.com/people/phX_Yip
+#SUBTITLE Blog
+#LINK alwayswithme.twomini.com/blog
+#SUBTITLE Github
+#LINK github.com/Alwayswithme
+
+_Project Experience_
+#SUBTITLE Jul, 2013
+#BEGIN#
+<strong>Tetris, &nbsp;</strong>Java, MySQL,&nbsp;Independent Project
+Platfrom: Debian GNU/Linux sid x86_64
+Tool: OpenJDK-7, VIM, Eclipse, GIMP, Git
+This game accomplish the basic function, and it's also user customizable
+Using <strong>OOP</strong>'s way to develop this game, with a simple <strong>MVC</strong> design pattern
+Use IO and JDBC to save the configure information and players' record
+With a XML file to configure the Metadata, using dom4j and reflect to 
+Dynamically invoke methods under different situations
+#END#
+
+_Personal Skills_
+#SUBTITLE IT Skills
+#BEGIN#
+Good command of <strong>Java SE</strong>, Serlvet/JSP and Tomcat deployment.
+Know well <strong>HTML/CSS/JavaScript</strong>.Learning SSH framework by myself.
+Familiar with Hardware and Software maintained.
+Frequent user of <strong>GNU/Linux</strong> Operate System, can customize Kernel.
+Mastery of using <strong>MySQL(MariaDB)</strong> DATABASE, <strong>VIM, Git &amp; Eclipse IDE</strong>.
+Know about setup LNMP and Samba server, <strong>ShellScript/Python</strong>.
+#END#
+#SUBTITLE Language
+#BEGIN#
+Fluent in <strong>English</strong> Reading and passed CET-6(535); Native Cantonese
+#END#
+
+_Hobby_
+#BEGIN#
+Coding, IT, Linux, Internet, Reading, Long-distance Running
+#END#
