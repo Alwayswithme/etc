@@ -6,22 +6,16 @@ import java.util.TreeSet;
 
 
 public class SubSet {
-
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
 		TreeSet<String> mainSet = new TreeSet<String>(); //main set use to get subset
-		for(int i = 0; i < 7; i++) {
+		for(int i = 0; i < 5; i++) {
 			char c = (char) ('a' + i);
 			
 			mainSet.add(c+"");			//add element
 		}
 		ArrayList<TreeSet<String>> allSubset = getSubset(mainSet);
-		for (TreeSet<String> treeSet : allSubset) {
-			
+		for (TreeSet<String> treeSet : allSubset) 
 			System.out.println(treeSet.toString());
-		}
 	}
 
 	private static ArrayList<TreeSet<String>> getSubset(TreeSet<String> mainSet) {

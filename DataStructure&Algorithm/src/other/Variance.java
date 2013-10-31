@@ -7,7 +7,7 @@ public class Variance {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		int[] arr = {1, 2, 3};
+		int[] arr = {1, 2, 3, 4};
 	
 		
 		double sum1 = 0, sum2 = 0;

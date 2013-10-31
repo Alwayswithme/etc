@@ -6,8 +6,8 @@ import java.util.ListIterator;
 public class Josephus {
 
 	private static final int N = 67;
-	private static final int FIRST = 5;
-	private static final int STEP = 3;
+	private static final int FIRST = 1;
+	private static final int STEP = 6;
 	public static void main(String[] args) {
 		int peopleNumber = N;
 		int start = FIRST, count = STEP;
@@ -30,22 +30,16 @@ public class Josephus {
 			;
 		it.previous();
 		while (it.hasNext() || it.hasPrevious()) {
-			for (int i = 1; i< STEP; i++) {
+			for (int i = 0; i< STEP; i++) {
 				if (it.hasNext()) {
-					it.next();
+					last = it.next();
 				}else {
 					while(it.hasPrevious())
 						it.previous();
-					it.next();
+					last = it.next();
 				}
 			}
-			if (it.hasNext()) {
-				last = it.next();
-			}else {
-				while(it.hasPrevious())
-					it.previous();
-				last = it.next();
-			}
+
 			//System.out.printf("%d is out \n", last);
 			it.remove();
 		}

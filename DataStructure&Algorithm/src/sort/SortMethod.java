@@ -3,14 +3,13 @@ package sort;
 import java.util.Arrays;
 
 public class SortMethod {
-
 	public static void main(String[] args) {
 		Integer[]  array = {4, 2, 3, 5, 1, 10, 38, -1, 2, 0, 33, 95, -21, 25};
 		heap(array);
 		System.out.println(Arrays.toString(array));
 	}
 	public static <T extends Comparable<? super T>> void quick(Integer[] array) {
-		quick(array, 0, array.length);
+		quick(array, 0, array.length-1);
 	}
 	/**
 	 * bubble sort(stable): average O(n^2), worst O(n^2), best O(n)
@@ -50,11 +49,10 @@ public class SortMethod {
 		gap = len = array.length;
 		do {
 			gap = gap/3 +1;
-			for (int i = gap; i < len; i++) {
-				for (int j = i - gap; j >= 0 && array[j].compareTo(array[j+gap]) < 0; j-=gap) {
+			for (int i = gap; i < len; i++) 
+				for (int j = i - gap; j >= 0 && 
+						array[j].compareTo(array[j+gap]) > 0; j-=gap) 
 					swap(array,j+gap,j);
-				}
-			}
 		}while(gap > 1);
 	}
 	/**
@@ -76,7 +74,7 @@ public class SortMethod {
 	public static <T extends Comparable<? super T>> void quick(T[] arr, int left, int right) {
 		while(left < right) {
 		
-		int last = partition(arr, left, right-1);
+		int last = partition(arr, left, right);
 		
 		quick(arr, left, last-1);
 		left = last+1;		// 尾递归
@@ -95,13 +93,13 @@ public class SortMethod {
 		int last = left;
 		swap(arr, left, mid);
 		for (int i = left + 1; i <= right; i++)
-			if (arr[left].compareTo(arr[i]) < 0)
+			if (arr[left].compareTo(arr[i]) > 0)
 				swap(arr, ++last, i);
 		swap(arr, last, left);
 		return last;
 	}
 	/**
-	 * heap sort(stable) : average(nlogn), worst(nlogn), best(worst)
+	 * heap sort(unstable) : average(nlogn), worst(nlogn), best(nlogn)
 	 */
 	public static <T extends Comparable<? super T>> void heap(T[] a) {
 		int len = a.length - 1;
@@ -130,4 +128,5 @@ public class SortMethod {
 		array[i] = array[j];
 		array[j] = temp;
 	}
+	
 }
