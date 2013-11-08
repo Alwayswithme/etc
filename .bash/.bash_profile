@@ -10,7 +10,6 @@ CATALINA_BASE=/var/lib/tomcat7
 export CATALINA_HOME
 export CATALINA_BASE
 #java path
-export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-i386
 export CLASSPATH=.:${HOME}/Java:$CATALINA_HOME/lib/servlet-api.jar:./classes:./bin:./lib
 #vim java complete 
 VJAVA=${HOME}/.vim:${HOME}/.vim/autoload/
@@ -23,7 +22,7 @@ export CLASSPATH=${CLASSPATH}:${MYSQL_CONNECT}:${DOM4J}:$VJAVA
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
-
+fcitx -d
 #build path
 export spec=${HOME}/rpmbuild/SPECS
 export install=${HOME}/rpmbuild/RPMS/x86_64

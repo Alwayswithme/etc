@@ -16,13 +16,12 @@ alias la='ls -a'
 
 
 alias del='fc -s ls=rm'
-alias aud="echo "q"|sudo -S apt-get  update"        #update sourcelist
-alias aug="sudo apt-get upgrade"       #upgrade package
-alias ain="sudo apt-get install"       #install
-alias arm="echo "q"|sudo -S apt-get  remove"        #remove
-alias aar="echo "q"|sudo -S apt-get autoremove"    #remove package no longer need
-alias aac="echo "q"|sudo -S apt-get -y autoclean"     #clean package useless
-alias acs='apt-cache search'
+alias yd="echo "q"|sudo -S yum check-update"        #update sourcelist
+alias yg="sudo yum upgrade"       #upgrade package
+alias yi="sudo yum install"       #install
+alias yr="echo "q"|sudo -S yum  remove"        #remove
+alias yar="echo "q"|sudo -S yum autoremove"    #remove package no longer need
+alias ys='yum search'
 alias ug='sudo update-grub'
 alias td='tidy -indent -quiet -wrap 72'
 
@@ -42,3 +41,9 @@ if [ -x /usr/bin/dircolors ]; then
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
 fi
+
+######### git ########
+alias gp="git push origin master"
+alias gs="git status"
+alias ga="git add ."
+alias gc="git commit -a"
