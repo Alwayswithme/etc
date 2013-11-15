@@ -1,1 +1,1 @@
-setlocal et sts=4 sw=4 ts=4
+setlocal et sts=2 sw=2 ts=2

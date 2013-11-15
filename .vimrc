@@ -94,7 +94,6 @@ if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
 		  \ | wincmd p | diffthis
 endif
-set guifont=Monospace\ 10
 set guioptions-=m         "turn off menu bar
 set guioptions-=T         "turn off toolbar
 set guioptions-=L         "turn off scroll bar

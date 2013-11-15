@@ -1,6 +1,10 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_cnt =8
 let g:netrw_dirhist_1='/etc/fonts/conf.avail'
 let g:netrw_dirhist_2='/etc/fonts/conf.d'
 let g:netrw_dirhist_3='/etc/apt/sources.list.d'
 let g:netrw_dirhist_4='/home/phx/MyProjects/Tetris/src/dto'
+let g:netrw_dirhist_5='/home/phx/alwayswithme/_site'
+let g:netrw_dirhist_6='/home/phx/alwayswithme/_layouts'
+let g:netrw_dirhist_7='/home/phx/etc/DataStructure&Algorithm/src/search'
+let g:netrw_dirhist_8='/home/phx/resume'
