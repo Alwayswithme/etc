@@ -7,6 +7,10 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
+# set a fancy prompt (non-color, unless we know we "want" color)
+case "$TERM" in
+    xterm-color) color_prompt=yes;;
+esac
 
 if [[ ${EUID} == 0 ]] ; then
 	PS1='\[\033[01;31m\][\!]\h\[\033[01;34m\] \W \$\[\033[00m\] '
@@ -24,12 +28,35 @@ esac
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
 
-# set a fancy prompt (non-color, unless we know we "want" color)
-case "$TERM" in
-    xterm-color) color_prompt=yes;;
-esac
-
 # User specific aliases and functions
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
+
+# 1, Environment variables
+# User specific environment and startup programs
+PATH=$PATH:$HOME/bin
+
+export PATH
+# tomcat path
+CATALINA_HOME=/usr/share/tomcat7
+CATALINA_BASE=/var/lib/tomcat7
+export CATALINA_HOME
+export CATALINA_BASE
+# java path
+export CLASSPATH=.:${HOME}/Java:$CATALINA_HOME/lib/servlet-api.jar:./classes:./bin:./lib
+# vim java complete 
+VJAVA=${HOME}/.vim:${HOME}/.vim/autoload/
+# add dom4j & mysql
+MYSQL_CONNECT=${JAVA_HOME}/lib/mysql-connector.jar
+DOM4J=/usr/share/java/dom4j.jar
+export CLASSPATH=${CLASSPATH}:${MYSQL_CONNECT}:${DOM4J}:$VJAVA
+
+# input method
+# export GTK_IM_MODULE=fcitx
+# export QT_IM_MODULE=fcitx
+# export XMODIFIERS=@im=fcitx
+# fcitx -d
+
+export EDITOR=vim
+export PAGER=less

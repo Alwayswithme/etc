@@ -2,35 +2,6 @@
 # ================================================
 # Bash Login File
 # ================================================
-
-# 1, Environment variables
-# User specific environment and startup programs
-PATH=$PATH:$HOME/bin
-
-export PATH
-# tomcat path
-CATALINA_HOME=/usr/share/tomcat7
-CATALINA_BASE=/var/lib/tomcat7
-export CATALINA_HOME
-export CATALINA_BASE
-# java path
-export CLASSPATH=.:${HOME}/Java:$CATALINA_HOME/lib/servlet-api.jar:./classes:./bin:./lib
-# vim java complete 
-VJAVA=${HOME}/.vim:${HOME}/.vim/autoload/
-# add dom4j & mysql
-MYSQL_CONNECT=${JAVA_HOME}/lib/mysql-connector.jar
-DOM4J=/usr/share/java/dom4j.jar
-export CLASSPATH=${CLASSPATH}:${MYSQL_CONNECT}:${DOM4J}:$VJAVA
-
-# input method
-# export GTK_IM_MODULE=fcitx
-# export QT_IM_MODULE=fcitx
-# export XMODIFIERS=@im=fcitx
-# fcitx -d
-
-export EDITOR=vim
-export PAGER=less
-
 enLocale=en_US.UTF-8
 if [ -z "$DISPLAY" ]; then
     export LANG=$enLocale
@@ -44,6 +15,9 @@ if [ -e /usr/share/terminfo/x/xterm-256color ];then
 else
     export TERM='xterm-color'
 fi
+# 1, Shell options
+set -o noclobber
+set -o notify
 
 # 2, Shell prompt - Bash
 # export PS1='\[\033[01;32m\]`basename ${SHELL}` \h@\u: \[\033[01;34m\] \w [\!]\$\[\033[00m\] '
@@ -70,8 +44,4 @@ fi
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000
 HISTFILESIZE=2000
-
-# 1, Shell options
-set -o noclobber
-set -o notify
 
