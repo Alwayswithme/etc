@@ -1,16 +1,11 @@
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
-
-
 alias a=alias
 alias c=clear
 alias d=date
 alias f='free -h'
 alias r='fc -s'
-alias l='ls -CF'
 alias h=history
 # some more ls aliases
+alias l='ls -CF'
 alias ll='ls -l'
 alias la='ls -a'
 
@@ -25,9 +20,9 @@ alias ys='yum search'
 alias ug='sudo update-grub'
 alias td='tidy -indent -quiet -wrap 72'
 
-#turn off screen
+# turn off screen
 alias scoff="sleep 3 && xset dpms force off"
-#clean package and configfile
+# clean package and configfile
 alias cleanrc='dpkg -l |grep ^rc|awk "{print \$2}"|sudo xargs dpkg -P'
 
 # enable color support of ls and also add handy aliases
@@ -42,7 +37,7 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-######### git ########
+# git
 alias gp="git push origin master"
 alias gs="git status"
 alias ga="git add ."
