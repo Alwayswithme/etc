@@ -144,7 +144,6 @@ set whichwrap=b,s,<,>     "specified keys move the cursor
 set colorcolumn=96        "visible right margin indicator
 set formatoptions+=Mmtn
 
-
 nnoremap <F8> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 
 "use jj to change to Normal mode
@@ -168,3 +167,6 @@ nmap <A-w> :w
 set <A-f>=f
 nmap <A-f> gg=G
 set nobackup
+
+" Abbreviations
+iabbrev phx Phoenix Yip

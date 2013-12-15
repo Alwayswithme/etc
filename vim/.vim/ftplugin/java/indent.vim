@@ -6,3 +6,6 @@ inoremap <buffer> <C-S-Space> <C-X><C-U><C-P>
 map <F9> :w<CR>:!clear<CR>:!javac % <CR>
 "F10 run java
 map <F10> :!clear<CR>:!java %<<CR>
+
+"main abbreviation
+ia main public static void main(String[] args) {
