@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/home/phx'
+let g:netrw_dirhist_2='/home/phx/alwayswithme'
+let g:netrw_dirhist_3='/home/phx/alwayswithme/_posts'
+let g:netrw_dirhist_4='/home/phx'
+let g:netrw_dirhist_5='/home/phx/alwayswithme'
+let g:netrw_dirhist_6='/home/phx/alwayswithme/_posts'
+let g:netrw_dirhist_7='/home/phx'
+let g:netrw_dirhist_8='/home/phx/alwayswithme'
+let g:netrw_dirhist_9='/home/phx/alwayswithme/_posts'

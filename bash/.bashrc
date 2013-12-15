@@ -60,3 +60,12 @@ export CLASSPATH=${CLASSPATH}:${MYSQL_CONNECT}:${DOM4J}:$VJAVA
 
 export EDITOR=vim
 export PAGER=less
+
+# 1, Shell options
+shopt -s extglob hostcomplete gnu_errfmt
+
+set -o vi
+set -o noclobber
+set -o notify
+# set -o xtrace
+# set -o verbose

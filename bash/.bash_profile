@@ -15,9 +15,6 @@ if [ -e /usr/share/terminfo/x/xterm-256color ];then
 else
     export TERM='xterm-color'
 fi
-# 1, Shell options
-set -o noclobber
-set -o notify
 
 # 2, Shell prompt - Bash
 # export PS1='\[\033[01;32m\]`basename ${SHELL}` \h@\u: \[\033[01;34m\] \w [\!]\$\[\033[00m\] '
