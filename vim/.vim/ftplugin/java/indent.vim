@@ -1,4 +1,4 @@
-setlocal sts=4 sw=4 ts=4
+setlocal softtabstop=4 sw=4
 setlocal omnifunc=javacomplete#Complete
 inoremap <buffer> <C-X><C-U> <C-X><C-U><C-P>
 inoremap <buffer> <C-S-Space> <C-X><C-U><C-P> 
@@ -9,3 +9,11 @@ map <F10> :!clear<CR>:!java %<<CR>
 
 "main abbreviation
 ia main public static void main(String[] args) {
+
+"fold
+set foldcolumn=2
+
+"indent
+set cindent
+
+set expandtab

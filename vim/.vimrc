@@ -67,7 +67,7 @@ if has("autocmd")
   au!
 
   " For all text files set 'textwidth' to 78 characters.
-  autocmd FileType text setlocal textwidth=78
+  autocmd FileType text setlocal textwidth=80
 
   " When editing a file, always jump to the last known cursor position.
   " Don't do it when the position is invalid or when inside an event handler
@@ -107,7 +107,6 @@ endif
 set number                "show line numbers
 set so=5                 "enable context
 
-set tabstop=4             "tab = 4, 
 set shiftwidth=4          "indent 4 spaces
 set softtabstop=4         "4 spaces transfer 1 tab
 set expandtab             "use space for tab
@@ -124,10 +123,7 @@ set completeopt=menu
 
 "about indent
 set smartindent           "smartindent
-set autoindent            "autoindent
 set linebreak             "linebreak
-set cindent               "indent like C
-
 
 "about search
 set hlsearch              "highlight search
@@ -141,7 +137,7 @@ set smarttab
 set wrap                  "warp
 set sidescroll=10         "scroll horizontally
 set whichwrap=b,s,<,>     "specified keys move the cursor
-set colorcolumn=96        "visible right margin indicator
+set colorcolumn=80        "visible print margin indicator
 set formatoptions+=Mmtn
 
 nnoremap <F8> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
