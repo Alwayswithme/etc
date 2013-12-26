@@ -82,9 +82,7 @@ if has("autocmd")
   augroup END
 
 else
-
-  set autoindent		" always set autoindenting on
-
+  set autoindent           "always set autoindenting on
 endif " has("autocmd")
 
 " Convenient command to see the difference between the current buffer and the
@@ -101,11 +99,13 @@ set t_Co=256              "enable 256 color
 if has("gui_running")
     colorscheme badwolf
 else
-    colorscheme badwolf
+    colorscheme slate
 endif
 
+set nobackup
+
 set number                "show line numbers
-set so=5                 "enable context
+set so=5                  "enable context
 
 set shiftwidth=4          "indent 4 spaces
 set softtabstop=4         "4 spaces transfer 1 tab
@@ -116,23 +116,26 @@ set nobackup              "no backup files
 set wrapmargin=6
 set laststatus=2          "status show file name
 set ruler
-set smartcase             
+set smartcase
 set ignorecase            "ignore character case in search mode
 set completeopt=menu
 "set autochdir             "change directory of the file
 
-"about indent
+""""  about indent
+
 set smartindent           "smartindent
 set linebreak             "linebreak
 
-"about search
+""""  about search
+
 set hlsearch              "highlight search
 set incsearch             "sync search
-set list                  "show tab 
+set list                  "show tab
 set listchars=tab:>>,trail:-   "tab=> space= 
 set smarttab
 
-"about display
+""""  about display
+
 "set textwidth=80          "textwidth beyond 80
 set wrap                  "warp
 set sidescroll=10         "scroll horizontally
@@ -158,11 +161,10 @@ set <A-p>=p
 nmap <A-p> gT
 "<Alt-w> write to save file
 set <A-w>=w
-nmap <A-w> :w
+nmap <A-w> :w<CR>
 "<Alt-f> format the whole file
 set <A-f>=f
-nmap <A-f> gg=G
-set nobackup
+nmap <A-f> gg=G``
 
 " Abbreviations
 iabbrev phx Phoenix Yip
