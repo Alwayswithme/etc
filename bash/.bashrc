@@ -52,11 +52,6 @@ MYSQL_CONNECT=${JAVA_HOME}/lib/mysql-connector.jar
 DOM4J=/usr/share/java/dom4j.jar
 export CLASSPATH=${CLASSPATH}:${MYSQL_CONNECT}:${DOM4J}:$VJAVA
 
-# input method
-# export GTK_IM_MODULE=fcitx
-# export QT_IM_MODULE=fcitx
-# export XMODIFIERS=@im=fcitx
-# fcitx -d
 
 export EDITOR=vim
 export PAGER=less

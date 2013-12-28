@@ -99,7 +99,7 @@ set t_Co=256              "enable 256 color
 if has("gui_running")
     colorscheme badwolf
 else
-    colorscheme slate
+    colorscheme badwolf
 endif
 
 set nobackup

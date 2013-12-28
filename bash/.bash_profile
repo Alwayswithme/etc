@@ -42,3 +42,8 @@ fi
 HISTSIZE=1000
 HISTFILESIZE=2000
 
+# input method
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS="@im=fcitx"
+# fcitx -d
