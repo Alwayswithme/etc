@@ -8,8 +8,7 @@
 `echo nonfree | awk '{printf("yum --downloaddir=/tmp localinstall --nogpgcheck \
 		http://download1.rpmfusion.org/%1$s/fedora/rpmfusion-%1$s-release-20.noarch.rpm"), $1}'`
 # 避免下载的包写入硬盘
-
-
+#
 # 顺便把下面这行注释的命令写入/etc/bashrc
 echo "alias yum='yum --downloaddir=/tmp'" >> /etc/bashrc
 
@@ -75,7 +74,7 @@ rpm -Uvh http://www.infinality.net/fedora/linux/infinality-repo-1.0-1.noarch.rpm
 yum install freetype-infinality fontconfig-infinality
 
 
-# 编辑
+# 编辑可改变渲染风格
 #    /etc/profile.d/infinality-settings.sh
 #    /etc/fonts/infinality/infinality.conf
 . /etc/profile.d/infinality-settings.sh
