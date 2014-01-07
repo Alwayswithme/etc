@@ -2,10 +2,11 @@
 # =======================================
 # Bash environment file
 # =======================================
-# Source global definitions
-if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
-fi
+
+# Uncomment the following line if you don't like systemctl's auto-paging feature:
+# export SYSTEMD_PAGER=
+
+# User specific aliases and functions
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
@@ -15,7 +16,7 @@ esac
 if [[ ${EUID} == 0 ]] ; then
 	PS1='\[\033[01;31m\][\!]\h\[\033[01;34m\] \W \$\[\033[00m\] '
 else
-	PS1='\[\033[01;35m\]No.\!\[\033[01;32m\] \u\[\e[02;38m\] \w \[\033[01;34m\]\$\[\e[00m\] '
+	PS1='\e[0;36m\]No.\!\e[02;38m\] \w \[\033[01;34m\]\$\[\e[00m\] '
 fi
 
 # If not running interactively, don't do anything
@@ -33,11 +34,6 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-# 1, Environment variables
-# User specific environment and startup programs
-PATH=$PATH:$HOME/bin
-
-export PATH
 # tomcat path
 CATALINA_HOME=/usr/share/tomcat7
 CATALINA_BASE=/var/lib/tomcat7
