@@ -21,8 +21,8 @@ in='yum --downloaddir=/tmp install'
 
 # Xorg and dirvers
 ${in} xorg-x11-drv-evdev xorg-x11-drv-keyboard xorg-x11-drv-synaptics \
-    xorg-x11-drv-mouse xorg-x11-drv-intel xorg-x11-drv-vesa xorg-x11-drv-fbdev 
-# xorg-x11-drv-modesetting xorg-x11-xinit-session
+    xorg-x11-drv-mouse xorg-x11-drv-intel xorg-x11-drv-vesa \
+    llvm xorg-x11-glamor
 
 
 # KDE
@@ -38,7 +38,8 @@ ${in} kde-plasma-networkmanagement bluedevil bluez-cups iwl2030-firmware mesa-dr
 
 
 # applications
-${in} gwenview ark vlc firefox okular yakuake kamoso ksnapshot kwrite kcharselect
+${in} gwenview ark vlc firefox okular yakuake kamoso ksnapshot kwrite \
+    ksysguard kcharselect
 
 
 # themes, fonts etc.
@@ -59,15 +60,11 @@ ${in} fcitx-qt4 fcitx-configtool kcm-fcitx fcitx-cloudpinyin plasma-applet-kimpa
 
 
 # 各种工具
-${in} unrar p7zip openssh-server bash-completion usbutils lm_sensors kernel-tools
+${in} tar unrar p7zip openssh-server bash-completion usbutils lm_sensors kernel-tools
 
 
 # codec
 ${in} gstreamer-plugins-{good,ugly} gstreamer-ffmpeg gstreamer-plugins-bad-{free,nonfree}
-
-
-# 改变运行级别
-ln -fs /lib/systemd/system/graphical.target /etc/systemd/system/default.target
 
 
 # 字体渲染
@@ -75,14 +72,8 @@ yum --downloaddir=/tmp localinstall  http://www.infinality.net/fedora/linux/infi
 ${in}  freetype-infinality fontconfig-infinality
 
 
-# 编辑可改变渲染风格
-#    /etc/profile.d/infinality-settings.sh
-#    /etc/fonts/infinality/infinality.conf
-. /etc/profile.d/infinality-settings.sh
-
-
 # 电源管理
-${in} tuned
+${in} tuned hdparm
 systemctl enable tuned.service && systemctl start tuned.service
 tuned-adm profile powersave
 
@@ -92,3 +83,19 @@ tuned-adm profile powersave
 
 # 显卡驱动
 ${in} gcc kernel-devel kernel-headers
+
+
+# java
+${in} java-1.7.0-openjdk-src
+
+
+# 编辑可改变渲染风格
+#    /etc/profile.d/infinality-settings.sh
+#    /etc/fonts/infinality/infinality.conf
+# . /etc/profile.d/infinality-settings.sh
+
+
+# 改变运行级别
+# ln -fs /lib/systemd/system/graphical.target /etc/systemd/system/default.target
+
+
