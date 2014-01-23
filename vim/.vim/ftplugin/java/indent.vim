@@ -11,7 +11,7 @@ map <F10> :!clear<CR>:!java %<<CR>
 ia main public static void main(String[] args) {
 
 "fold
-set foldcolumn=2
+"set foldcolumn=2
 
 "indent
 set cindent

@@ -1,19 +1,3 @@
-" An example for a vimrc file.
-"
-" Maintainer:	Bram Moolenaar <Bram@vim.org>
-" Last change:	2011 Apr 15
-"
-" To use it, copy it to
-"     for Unix and OS/2:  ~/.vimrc
-"	      for Amiga:  s:.vimrc
-"  for MS-DOS and Win32:  $VIM\_vimrc
-"	    for OpenVMS:  sys$login:.vimrc
-
-" When started as "evim", evim.vim will already have done these settings.
-if v:progname =~? "evim"
-  finish
-endif
-
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
@@ -21,18 +5,11 @@ set nocompatible
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
-if has("vms")
-  set nobackup		" do not keep a backup file, use versions instead
-else
-  set backup		" keep a backup file
-endif
-set history=50		" keep 50 lines of command line history
-set ruler		" show the cursor position all the time
-set showcmd		" display incomplete commands
-set incsearch		" do incremental searching
-
-" For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
-" let &guioptions = substitute(&guioptions, "t", "", "g")
+set nobackup            " do not keep a backup file, use versions instead
+set history=100         " keep 50 lines of command line history
+set ruler               " show the cursor position all the time
+set showcmd             " display incomplete commands
+set incsearch           " do incremental searching
 
 " Don't use Ex mode, use Q for formatting
 map Q gq
@@ -41,9 +18,9 @@ map Q gq
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
 
-" In many terminal emulators the mouse works just fine, thus enable it.
-if has('mouse')
-  set mouse=a
+" When started as "evim", evim.vim will already have done these settings.
+if v:progname =~? "evim"
+  finish
 endif
 
 " Switch syntax highlighting on, when the terminal has colors
@@ -51,6 +28,11 @@ endif
 if &t_Co > 2 || has("gui_running")
   syntax on
   set hlsearch
+endif
+
+" In many terminal emulators the mouse works just fine, thus enable it.
+if has('mouse')
+  set mouse=a
 endif
 
 " Only do this part when compiled with support for autocommands.
@@ -90,59 +72,54 @@ endif " has("autocmd")
 " Only define it when not defined already.
 if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
-		  \ | wincmd p | diffthis
+                  \ | wincmd p | diffthis
 endif
-set guioptions-=m         "turn off menu bar
-set guioptions-=T         "turn off toolbar
-set guioptions-=L         "turn off scroll bar
-set t_Co=256              "enable 256 color
-if has("gui_running")
-    colorscheme badwolf
-else
-    colorscheme badwolf
-endif
-
-set nobackup
-
-set number                "show line numbers
-set so=5                  "enable context
-
-set shiftwidth=4          "indent 4 spaces
-set softtabstop=4         "4 spaces transfer 1 tab
-set expandtab             "use space for tab
-set showmatch             "highligh brackets
-set nobackup              "no backup files
-
-set wrapmargin=6
-set laststatus=2          "status show file name
-set ruler
-set smartcase
-set ignorecase            "ignore character case in search mode
-set completeopt=menu
-"set autochdir             "change directory of the file
-
-""""  about indent
-
-set smartindent           "smartindent
-set linebreak             "linebreak
-
-""""  about search
-
-set hlsearch              "highlight search
-set incsearch             "sync search
-set list                  "show tab
-set listchars=tab:>>,trail:-   "tab=> space= 
-set smarttab
 
 """"  about display
-
 "set textwidth=80          "textwidth beyond 80
 set wrap                  "warp
+set number                "show line numbers
+set scrolloff=5           "enable context
+set showmatch             "highligh brackets
 set sidescroll=10         "scroll horizontally
 set whichwrap=b,s,<,>     "specified keys move the cursor
 set colorcolumn=80        "visible print margin indicator
 set formatoptions+=Mmtn
+set list                  "show tab
+set listchars=tab:>>,trail:-   "tab=> space= 
 
+""""  about search
+set hlsearch              "highlight search
+set smartcase
+set ignorecase            "ignore character case in search mode
+
+""""  about indent
+set smarttab
+set smartindent           "smartindent
+set linebreak             "linebreak
+set expandtab             "use space for tab
+set softtabstop=4         "4 spaces transfer 1 tab
+set shiftwidth=4          "indent 4 spaces
+
+"The following three lines map Ctrl+s to save in vi.  You can comment 
+"these out, it has nothing to do with syntax highlighting or colors.
+:nmap <c-s> :w<CR>
+:imap <c-s> <Esc>:w<CR>a
+:imap <c-s> <Esc><c-s>
+
+
+colorscheme vividchalk
+set background=dark
+
+au BufReadPost *.twig colorscheme koehler 
+au BufReadPost *.css colorscheme slate 
+au BufReadPost *.js colorscheme elflord 
+au BufReadPost *.py colorscheme molokai
+au BufReadPost *.html colorscheme molokai
+au BufReadPost *.java colorscheme molokai
+"au BufReadPost *.php colorscheme two2tango
+
+"""" shortcut
 nnoremap <F8> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 
 "use jj to change to Normal mode
@@ -168,3 +145,9 @@ nmap <A-f> gg=G``
 
 " Abbreviations
 iabbrev phx Phoenix Yip
+
+""" gvim option
+set guioptions-=m         "turn off menu bar
+set guioptions-=T         "turn off toolbar
+set guioptions-=L         "turn off scroll bar
+set guifont=MicroSoft\ Yahei\ 12

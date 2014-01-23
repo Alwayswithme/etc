@@ -17,12 +17,12 @@ alias vi='gvim -v'
 ###############################
 
     alias yd="echo "q"|sudo -S yum check-update"        #update sourcelist
-    alias yg="sudo yum upgrade"       #upgrade package
+    alias yg="sudo yum --downloaddir=/tmp update"       #upgrade package
     alias yi="sudo yum install"       #install
     alias yr="echo "q"|sudo -S yum  remove"        #remove
     alias yar="echo "q"|sudo -S yum autoremove"    #remove package no longer need
     alias ys='yum search'
-    alias yum='yum --downloaddir=/tmp'
+    alias yum='sudo yum --downloaddir=/tmp --color=always'
 
 ###############################
 # ubuntu/debian pkg management

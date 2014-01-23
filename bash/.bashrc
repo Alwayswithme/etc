@@ -13,10 +13,12 @@ case "$TERM" in
     xterm-color) color_prompt=yes;;
 esac
 
+# TERM=xterm-256color
+
 if [[ ${EUID} == 0 ]] ; then
 	PS1='\[\033[01;31m\][\!]\h\[\033[01;34m\] \W \$\[\033[00m\] '
 else
-	PS1='\e[0;36m\]No.\!\e[02;38m\] \w \[\033[01;34m\]\$\[\e[00m\] '
+	PS1='\[\e[0;36m\]No.\!\[\e[02;38m\] \w \[\033[01;34m\]\$\[\e[00m\] '
 fi
 
 # If not running interactively, don't do anything

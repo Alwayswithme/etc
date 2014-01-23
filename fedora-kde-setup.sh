@@ -48,7 +48,8 @@ ${in} wqy-microhei-fonts cjkuni-uming-fonts dejavu-s*fonts heisenbug-kde-theme \
 
 
 # admin
-${in} sudo efibootmgr setuptool smartmontools symlinks pm-utils
+${in} sudo efibootmgr setuptool smartmontools symlinks pm-utils \
+    deltarpm
 
 
 # editor and toolchain
@@ -60,11 +61,12 @@ ${in} fcitx-qt4 fcitx-configtool kcm-fcitx fcitx-cloudpinyin plasma-applet-kimpa
 
 
 # 各种工具
-${in} tar unrar p7zip openssh-server bash-completion usbutils lm_sensors kernel-tools
+${in} tar unrar p7zip openssh-server bash-completion usbutils lm_sensors
 
 
 # codec
-${in} gstreamer-plugins-{good,ugly} gstreamer-ffmpeg gstreamer-plugins-bad-{free,nonfree}
+${in} gstreamer-plugins-{good,ugly} gstreamer-ffmpeg gstreamer-plugins-bad-{free,nonfree} \
+    ffmpeg
 
 
 # 字体渲染
@@ -73,7 +75,7 @@ ${in}  freetype-infinality fontconfig-infinality
 
 
 # 电源管理
-${in} tuned hdparm
+${in} tuned hdparm kernel-tools
 systemctl enable tuned.service && systemctl start tuned.service
 tuned-adm profile powersave
 
@@ -83,6 +85,9 @@ tuned-adm profile powersave
 
 # 显卡驱动
 ${in} gcc kernel-devel kernel-headers
+
+# download site:http://support.amd.com/en-us/kb-articles/Pages/latest-linux-beta-driver.aspx
+# aticonfig --initial && aticonfig --px-igpu
 
 
 # java
