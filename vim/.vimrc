@@ -27,6 +27,7 @@ endif
 " Also switch on highlighting the last used search pattern.
 if &t_Co > 2 || has("gui_running")
   syntax on
+  colo badwolf
   set hlsearch
 endif
 
@@ -108,8 +109,8 @@ set shiftwidth=4          "indent 4 spaces
 :imap <c-s> <Esc><c-s>
 
 
-colorscheme vividchalk
 set background=dark
+colorscheme badwolf
 
 au BufReadPost *.twig colorscheme koehler 
 au BufReadPost *.css colorscheme slate 
@@ -150,4 +151,4 @@ iabbrev phx Phoenix Yip
 set guioptions-=m         "turn off menu bar
 set guioptions-=T         "turn off toolbar
 set guioptions-=L         "turn off scroll bar
-set guifont=MicroSoft\ Yahei\ 12
+set guifont=monospace\ 12

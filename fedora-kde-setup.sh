@@ -26,7 +26,8 @@ ${in} xorg-x11-drv-evdev xorg-x11-drv-keyboard xorg-x11-drv-synaptics \
 
 
 # KDE
-${in} kde-runtime kde-workspace kcolorchooser kdm kscreen kcm-gtk kcm_touchpad
+${in} kde-runtime kde-workspace kcolorchooser kdm kscreen kcm-gtk kcm_touchpad \
+    kdeplasma-addons
 
 
 # pulseaudio
@@ -38,8 +39,8 @@ ${in} kde-plasma-networkmanagement bluedevil bluez-cups iwl2030-firmware mesa-dr
 
 
 # applications
-${in} gwenview ark vlc firefox okular yakuake kamoso ksnapshot kwrite \
-    ksysguard kcharselect
+${in} gwenview ark vlc firefox okular yakuake kamoso ksnapshot \
+    ksysguard kcharselect kcalc
 
 
 # themes, fonts etc.
@@ -53,7 +54,7 @@ ${in} sudo efibootmgr setuptool smartmontools symlinks pm-utils \
 
 
 # editor and toolchain
-${in} vim-X11 git
+${in} vim-X11 git kwrite
 
 
 # 输入法
