@@ -41,17 +41,15 @@ CATALINA_HOME=/usr/share/tomcat7
 CATALINA_BASE=/var/lib/tomcat7
 export CATALINA_HOME
 export CATALINA_BASE
-# java path
-export CLASSPATH=.:${HOME}/Java:$CATALINA_HOME/lib/servlet-api.jar:./classes:./bin:./lib
+# java cp
+#export CLASSPATH=.:${HOME}/Java:$CATALINA_HOME/lib/servlet-api.jar:./classes:./bin:./lib
 # vim java complete 
-VJAVA=${HOME}/.vim:${HOME}/.vim/autoload/
-# add dom4j & mysql
-MYSQL_CONNECT=${JAVA_HOME}/lib/mysql-connector.jar
-DOM4J=/usr/share/java/dom4j.jar
-export CLASSPATH=${CLASSPATH}:${MYSQL_CONNECT}:${DOM4J}:$VJAVA
+#VJAVA=${HOME}/.vim:${HOME}/.vim/autoload/
 
 
-export EDITOR=vim
+export EDITOR=/usr/bin/vim
+export FCEDIT=/usr/bin/vim
+export VISUAL=/usr/bin/vim
 export PAGER=less
 
 # 1, Shell options

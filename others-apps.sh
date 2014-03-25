@@ -13,5 +13,7 @@ ${in} net-tools bsdtar
 ${in} eclipse eclipse-color-theme eclipse-nls-zh eclipse-vrapper
 
 # Video Acceleration
-${in} libva-intel-driver
-gstreamer1-vaapi libvdpau-va-gl
+${in} libva-intel-driver gstreamer1-vaapi libvdpau-va-gl
+
+# Ruby
+${in} ruby ruby-devel
