@@ -16,13 +16,13 @@ alias vi='gvim -v'
 # fedora pkg management
 ###############################
 
-    alias yd="echo "q"|sudo -S yum check-update"        #update sourcelist
+    alias yd="sudo yum check-update"                    #update sourcelist
     alias yg="sudo yum --downloaddir=/tmp update"       #upgrade package
-    alias yi="sudo yum install"       #install
-    alias yr="echo "q"|sudo -S yum  remove"        #remove
-    alias yar="echo "q"|sudo -S yum autoremove"    #remove package no longer need
+    alias yi="sudo yum --downloaddir=/tmp install"      #install
+    alias yr="sudo yum remove"                          #remove
+    alias yar="sudo yum autoremove"                     #remove package no longer need
     alias ys='yum search'
-    alias yum='sudo yum --downloaddir=/tmp --color=always'
+    alias yum='sudo yum --downloaddir=/tmp'
 
 ###############################
 # ubuntu/debian pkg management
@@ -55,7 +55,7 @@ fi
 ###############################
 # git
 ###############################
-alias gp="git push origin master"
+alias gp="git push origin master; git push china master"
 alias gs="git status"
 alias ga="git add ."
 alias gc="git commit -a"

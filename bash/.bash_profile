@@ -3,18 +3,22 @@
 # Bash Login File
 # ================================================
 enLocale=en_US.UTF-8
+zhLocale=zh_CN.UTF-8
 if [ -z "$DISPLAY" ]; then
     export LANG=$enLocale
     export LC_TIME=$enLocale
     export LANGUAGE=en
+else
+    export LANG=$zhLocale
+    export LC_TIME="$enLocale"
 fi
 export LC_COLLATE=C
 
-if [ -e /usr/share/terminfo/x/xterm-256color ];then
-    export TERM='xterm-256color'
-else
-    export TERM='xterm-color'
-fi
+# if [ -e /usr/share/terminfo/x/xterm-256color ];then
+#     export TERM='xterm-256color'
+# else
+#     export TERM='xterm-color'
+# fi
 
 # 2, Shell prompt - Bash
 # export PS1='\[\033[01;32m\]`basename ${SHELL}` \h@\u: \[\033[01;34m\] \w [\!]\$\[\033[00m\] '

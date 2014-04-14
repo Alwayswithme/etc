@@ -17,3 +17,9 @@ ${in} libva-intel-driver gstreamer1-vaapi libvdpau-va-gl
 
 # Ruby
 ${in} ruby ruby-devel
+
+# VM
+${in} VirtuaBox kmod-VirtualBox
+
+# cd-tools
+${in} k3b 
