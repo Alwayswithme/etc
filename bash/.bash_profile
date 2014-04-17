@@ -61,3 +61,5 @@ export PATH
 # export QT_IM_MODULE=fcitx
 # export XMODIFIERS="@im=fcitx"
 # fcitx -d
+# sudo mentohust >> /tmp/1
+# sudo /bin/echo 500 > /sys/class/backlight/intel_backlight/brightness

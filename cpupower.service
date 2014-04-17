@@ -1,0 +1,16 @@
+# /usr/lib/systemd/system/cpupower.service
+
+[Unit]
+Description=Configure CPU power related settings
+After=syslog.target display-manager.service graphical.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+EnvironmentFile=/etc/sysconfig/cpupower
+ExecStart=/bin/mentohust
+ExecStart=/usr/bin/cpupower $CPUPOWER_FREQ_SET
+ExecStop=/usr/bin/cpupower $CPUPOWER_STOP_OPTS
+
+[Install]
+WantedBy=multi-user.target

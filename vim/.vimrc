@@ -23,12 +23,25 @@ if v:progname =~? "evim"
   finish
 endif
 
+set t_Co=256
+set background=dark
+colo vividchalk
+
+"colorscheme badwolf
+
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
-if &t_Co > 2 || has("gui_running")
+if &t_Co > 16 || has("gui_running")
   syntax on
-  colo badwolf
   set hlsearch
+  au BufReadPost *.twig colorscheme koehler 
+  au BufReadPost *.css colorscheme slate 
+  au BufReadPost *.js colorscheme elflord 
+  au BufReadPost *.py colorscheme molokai
+  au BufReadPost *.html colorscheme molokai
+  au BufReadPost *.java colorscheme molokai
+  au BufReadPost *.php colorscheme two2tango
+
 endif
 
 " In many terminal emulators the mouse works just fine, thus enable it.
@@ -63,7 +76,7 @@ if has("autocmd")
     \ endif
 
   augroup END
-
+  
 else
   set autoindent           "always set autoindenting on
 endif " has("autocmd")
@@ -84,7 +97,7 @@ set scrolloff=5           "enable context
 set showmatch             "highligh brackets
 set sidescroll=10         "scroll horizontally
 set whichwrap=b,s,<,>     "specified keys move the cursor
-set colorcolumn=80        "visible print margin indicator
+"set colorcolumn=80        "visible print margin indicator
 set formatoptions+=Mmtn
 set list                  "show tab
 set listchars=tab:>>,trail:-   "tab=> space= 
@@ -108,21 +121,7 @@ set shiftwidth=4          "indent 4 spaces
 :imap <c-s> <Esc>:w<CR>a
 :imap <c-s> <Esc><c-s>
 
-
-set background=dark
-colorscheme badwolf
-
-au BufReadPost *.twig colorscheme koehler 
-au BufReadPost *.css colorscheme slate 
-au BufReadPost *.js colorscheme elflord 
-au BufReadPost *.py colorscheme molokai
-au BufReadPost *.html colorscheme molokai
-au BufReadPost *.java colorscheme molokai
-"au BufReadPost *.php colorscheme two2tango
-
-"""" shortcut
-nnoremap <F8> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
-
+"mapping
 "use jj to change to Normal mode
 imap jj <Esc>
 "map <Alt-c> copy to clipboard
@@ -137,18 +136,27 @@ nmap <A-n> gt
 "<Alt-p> previous tab
 set <A-p>=p
 nmap <A-p> gT
-"<Alt-w> write to save file
-set <A-w>=w
-nmap <A-w> :w<CR>
 "<Alt-f> format the whole file
 set <A-f>=f
 nmap <A-f> gg=G``
+"z{ to fold a block
+nmap z{ zfa{
+"F5 delete trailing blank
+nmap <F5> :%s/\s*$//<CR>:nohl<CR>
+"F6 delete dupucate blank line
+nmap <F6> :g/^\n$/d<CR>
 
 " Abbreviations
-iabbrev phx Phoenix Yip
+iabbrev phx~ Phoenix Yip
 
 """ gvim option
 set guioptions-=m         "turn off menu bar
 set guioptions-=T         "turn off toolbar
 set guioptions-=L         "turn off scroll bar
 set guifont=monospace\ 12
+
+" netrw setting
+let g:netrw_winsize= 80
+let g:netrw_liststyle= 3
+" let g:netrw_list_hide= '^[.].*'
+" let g:netrw_list_hide= '.*\.swp$'
