@@ -1,4 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
-let g:netrw_dirhist_1='/home/phoenix/workspace/HelloWorld/src'
-let g:netrw_dirhist_2='/usr/lib/systemd/system'
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/home/phoenix/Templates'
+let g:netrw_dirhist_2='/home/phoenix/Templates/netty-example-4.0.18.Final-sources'
+let g:netrw_dirhist_3='/home/phoenix/Templates/netty-example-4.0.18.Final-sources/io'
+let g:netrw_dirhist_4='/home/phoenix/Templates/netty-example-4.0.18.Final-sources/io/netty'
+let g:netrw_dirhist_5='/home/phoenix/Templates/netty-example-4.0.18.Final-sources/io/netty/example'
+let g:netrw_dirhist_6='/home/phoenix/Templates/netty-example-4.0.18.Final-sources/io/netty/example/proxy'

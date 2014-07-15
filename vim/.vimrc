@@ -147,7 +147,7 @@ nmap <F5> :%s/\s*$//<CR>:nohl<CR>
 nmap <F6> :g/^\n$/d<CR>
 
 " Abbreviations
-iabbrev phx~ Phoenix Yip
+iabbrev phx~ Phoenix Ye
 
 """ gvim option
 set guioptions-=m         "turn off menu bar

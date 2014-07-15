@@ -4,7 +4,7 @@
 in='yum --downloaddir=/tmp install'
 
 # downloader
-${in} ktorrent kdeartwork-kxs transmission-qt
+${in} ktorrent kdeartwork-kxs transmission-qt wget
 ${in} ktouch typespeed
 
 ${in} net-tools bsdtar
@@ -21,5 +21,14 @@ ${in} ruby ruby-devel
 # VM
 ${in} VirtuaBox kmod-VirtualBox
 
-# cd-tools
-${in} k3b 
+# tilling wm
+${in} rxvt-unicode-256color-ml feh i3status i3
+
+# theme
+${in} elementary-icon-theme grebird-gtk{2,3}-theme
+
+# gimp
+${in} gimp gimp-help-zh_CN
+
+# office
+${in} libreoffice-{kde,calc,writer}

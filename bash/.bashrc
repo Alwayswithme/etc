@@ -2,7 +2,6 @@
 # =======================================
 # Bash environment file
 # =======================================
-export TERMINAL=urxvt256c
 
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 # export SYSTEMD_PAGER=
@@ -42,12 +41,17 @@ CATALINA_HOME=/usr/share/tomcat7
 CATALINA_BASE=/var/lib/tomcat7
 export CATALINA_HOME
 export CATALINA_BASE
-# java cp
-#export CLASSPATH=.:${HOME}/Java:$CATALINA_HOME/lib/servlet-api.jar:./classes:./bin:./lib
-# vim java complete 
-#VJAVA=${HOME}/.vim:${HOME}/.vim/autoload/
 
+# java and maven
+JAVA_HOME=/home/phoenix/jdk1.6.0_29/
+export JAVA_HOME
+#export PATH=$JAVA_HOME/bin:$PATH
+M2_HOME=/home/phoenix/apache-maven-3.2.2/
+M2=$M2_HOME/bin
 
+export PATH=$M2:$PATH
+
+# shell editor
 export EDITOR=/usr/bin/vim
 export FCEDIT=/usr/bin/vim
 export VISUAL=/usr/bin/vim
@@ -61,3 +65,7 @@ set -o noclobber
 set -o notify
 # set -o xtrace
 # set -o verbose
+
+for file in /etc/bash_completion.d/* ; do
+    source "$file"
+done

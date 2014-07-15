@@ -96,11 +96,11 @@ bindsym XF86AudioLowerVolume exec "pactl set-sink-volume 0 -- -4% && killall -US
 bindsym XF86Calculator exec "kcalc"
 bindsym XF86Explorer exec "firefox"
 bindsym Mod1+f exec "dolphin"
-bindsym Mod1+m exec "clementine"
 bindsym Mod1+g exec "gvim"
 bindsym Mod1+v exec "vlc"
 bindsym Mod1+e exec "eclipse"
 bindsym $mod+o exec "okular"
+bindsym Print exec "ksnapshot"
 # bindsym XF86Favorites
 # bindsym XF86Mail
 # bindsym XF86HomePage
@@ -182,27 +182,28 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
     output LVDS1
-        mode hide
-        modifier $mod
-        status_command i3status --config /home/phoenix/.i3/i3status.conf
-        font pango:Comfortaa 9
-        position top
-        tray_output LVDS1
-        colors{
-            background #232323
-                statusline #DCDCDC
-        }
+    tray_output LVDS1
+    mode hide
+    modifier $mod
+    status_command i3status --config /home/phoenix/.i3/i3status.conf
+    font pango:Comfortaa 9
+    position top
+    colors{
+        background #232323
+        statusline #DCDCDC
+    }
 }
 
 bar {
     output VGA1
-        status_command i3status --config /home/phoenix/.i3/i3status.conf
-        font pango:Comfortaa 9
-        position top
-        colors{
-            background #232323
-                statusline #DCDCDC
-        }
+    tray_output LVDS1
+    status_command i3status --config /home/phoenix/.i3/i3status.conf
+    font pango:Comfortaa 9
+    position top
+    colors{
+        background #232323
+        statusline #DCDCDC
+    }
 }
 
 hide_edge_borders both
@@ -210,23 +211,26 @@ hide_edge_borders both
 
 # assignments
 # assign [class="Gvim"]  "3: VIM", workspace "3: VIM"
-for_window [class="Gvim"] move container to workspace "3: VIM", workspace "3: VIM", fullscren
+for_window [class="Gvim"] move container to workspace "3: VIM", fullscren
 for_window [class="Java"] floating enable, move container to workspace "4: IDE"
 for_window [class="Eclipse"]  move to workspace "4: IDE", fullscreen, workspace "4: IDE"
 for_window [class="Kcalc"] floating enable
 for_window [class="Dolphin"] floating enable
+for_window [class="Gwenview"] floating enable
 for_window [class="Clementine"] floating enable
 # assign [class="Java"]  4: IDE
 # assign [instance="Navigator"] 2: WWW
+assign [class="Clementine"] "5: Media"
 
 
 # automatically startup applications
-# exec_always --no-startup-id kmix
+exec_always ~/bin/startup.sh
 
 # startup application once
 exec --no-startup-id "feh --bg-fill /home/phoenix/Pictures/wallpaper.png"
 exec --no-startup-id "fcitx -d"
 exec --no-startup-id "xfce4-power-manager"
-exec --no-startup-id bash ~/bin/startup.sh
+exec --no-startup-id "gvim"
 exec --no-startup-id i3-msg 'workspace "2: WWW"; exec firefox; workspace 1'
+exec --no-startup-id i3-sensible-terminal
 # exec --no-startup-id i3-msg 'exec kmix'

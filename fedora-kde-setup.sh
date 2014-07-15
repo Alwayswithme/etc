@@ -27,7 +27,7 @@ ${in} xorg-x11-drv-evdev xorg-x11-drv-keyboard xorg-x11-drv-synaptics \
 
 # KDE
 ${in} kde-runtime kde-workspace kcolorchooser kdm kscreen kcm-gtk kcm_touchpad \
-    kdeplasma-addons
+    kdeplasma-addons k3b
 
 
 # pulseaudio
@@ -45,12 +45,13 @@ ${in} gwenview ark vlc firefox okular yakuake kamoso ksnapshot \
 
 # themes, fonts etc.
 ${in} wqy-microhei-fonts cjkuni-uming-fonts dejavu-s*fonts heisenbug-kde-theme \
-    kde-l10n-Chinese kde-i18n-Chinese oxygen-gtk plymouth-theme-charge
+    kde-l10n-Chinese kde-i18n-Chinese oxygen-gtk plymouth-theme-charge \
+    aajohan-comfortaa-fonts
 
 
 # admin
 ${in} sudo efibootmgr setuptool smartmontools symlinks pm-utils \
-    deltarpm
+    deltarpm net-tools
 
 
 # editor and toolchain
@@ -62,7 +63,8 @@ ${in} fcitx-qt4 fcitx-configtool kcm-fcitx fcitx-cloudpinyin plasma-applet-kimpa
 
 
 # 各种工具
-${in} tar unrar p7zip openssh-server bash-completion usbutils lm_sensors
+${in} tar unrar p7zip openssh-server bash-completion usbutils lm_sensors powertop \
+    deltarpm yum-utils
 
 
 # codec
@@ -79,6 +81,7 @@ ${in}  freetype-infinality fontconfig-infinality
 ${in} tuned hdparm kernel-tools
 systemctl enable tuned.service && systemctl start tuned.service
 tuned-adm profile powersave
+powertop --auto-tune
 
 
 #cpupower frequency-set -u 1.2G
