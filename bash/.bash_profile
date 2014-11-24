@@ -43,7 +43,7 @@ then source ${HOME}/.bashrc
 fi
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
+HISTSIZE=10000
 HISTFILESIZE=2000
 # Turn on parallel history
 shopt -s histappend

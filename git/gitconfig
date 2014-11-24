@@ -1,9 +1,10 @@
 [user]
-	name = Alwayswithme
-	email = phx13ye@gmail.com
+	name = yejinchang
+	email = yejinchang@skybility.com
 [core]
-	autocrlf = false
+	autocrlf = input
 	editor = vim
+	excludesfile = /home/phoenix/gitignore
 [push]
 	default = simple
 [merge]
@@ -14,3 +15,7 @@
 	ci = commit
 	st = status
 	unstage = reset HEAD --
+[color]
+	ui = true
+[help]
+	autocorrect = 1

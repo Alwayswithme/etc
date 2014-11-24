@@ -11,6 +11,7 @@ alias la='ls -a'
 alias del='fc -s ls=rm'
 alias td='tidy -indent -quiet -wrap 72'
 alias vi='gvim -v'
+alias pt='sudo powertop --auto-tune'
 
 ###############################
 # fedora pkg management
