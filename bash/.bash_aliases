@@ -60,3 +60,5 @@ alias gp="git push origin master; git push china master"
 alias gs="git status"
 alias ga="git add ."
 alias gc="git commit -a"
+
+alias wp="cd ~/workspace/cloudSoft-m2; git pull"

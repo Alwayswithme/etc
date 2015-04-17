@@ -81,10 +81,10 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+g floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+bindsym $mod+g focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -211,6 +211,17 @@ bar {
     position top
     colors{
         background #232323
+            statusline #DCDCDC
+    }
+}
+bar {
+    output HDMI-0
+    tray_output LVDS-0
+    status_command i3status --config /home/phoenix/.i3/i3status.conf
+    font pango:Comfortaa 9
+    position top
+    colors{
+        background #232323
         statusline #DCDCDC
     }
 }
@@ -244,10 +255,10 @@ exec_always ~/bin/startup.sh
 exec --no-startup-id "fcitx -d"
 exec --no-startup-id "xfce4-power-manager"
 exec --no-startup-id "gvim"
-exec --no-startup-id "python /home/phoenix/Downloads/goagent/local/proxy.py"
+# exec --no-startup-id "python /home/phoenix/Downloads/goagent/local/proxy.py"
 exec --no-startup-id "thunderbird"
 exec --no-startup-id i3-msg 'workspace "2: WWW"; exec firefox; workspace 1'
 exec --no-startup-id i3-sensible-terminal
 exec_always --no-startup-id "xrandr --output VGA-0 --auto --left-of LVDS-0;feh --bg-fill /home/phoenix/Pictures/wallpaper.png"
 # exec --no-startup-id "feh --bg-fill /home/phoenix/Pictures/wallpaper.png"
-# exec --no-startup-id i3-msg 'exec kmix'
+exec --no-startup-id "xset dpms 3000"
