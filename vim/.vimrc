@@ -97,10 +97,11 @@ set scrolloff=5           "enable context
 set showmatch             "highligh brackets
 set sidescroll=10         "scroll horizontally
 set whichwrap=b,s,<,>     "specified keys move the cursor
-"set colorcolumn=80        "visible print margin indicator
+set colorcolumn=80        "visible print margin indicator
 set formatoptions+=Mmtn
 set list                  "show tab
 set listchars=tab:>>,trail:-   "tab=> space= 
+set cursorline
 
 """"  about search
 set hlsearch              "highlight search
