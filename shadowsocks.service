@@ -1,0 +1,11 @@
+[Unit]
+Description=GoAgent Service
+After=network.target
+
+[Service]
+Type=simple
+User=root
+ExecStart=/bin/sh -c "sslocal -c /home/phoenix/.config/shadowsocks.json"
+
+[Install]
+WantedBy=multi-user.target
