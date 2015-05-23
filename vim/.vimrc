@@ -25,7 +25,7 @@ endif
 
 set t_Co=256
 set background=dark
-colo vividchalk
+colo molokai
 
 "colorscheme badwolf
 
@@ -161,3 +161,8 @@ let g:netrw_winsize= 80
 let g:netrw_liststyle= 3
 " let g:netrw_list_hide= '^[.].*'
 " let g:netrw_list_hide= '.*\.swp$'
+
+vmap <C-c> "+yi
+vmap <C-x> "+c
+vmap <C-v> c<ESC>"+p
+imap <C-v> <C-r><C-o>+

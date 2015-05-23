@@ -13,3 +13,5 @@ map <F4> :call Header() <cr>
 
 setlocal sts=4 sw=4 ts=4
 set expandtab
+set textwidth=80
+set colorcolumn=80
