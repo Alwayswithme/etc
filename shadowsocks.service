@@ -1,5 +1,5 @@
 [Unit]
-Description=GoAgent Service
+Description=Shadowsocks Service
 After=network.target
 
 [Service]

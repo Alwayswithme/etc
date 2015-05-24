@@ -109,7 +109,10 @@ under the License.
     </proxy>
     -->
   </proxies>
-
+  <activeProfiles>
+    <!--make the profile active all the time -->
+    <activeProfile>securecentral</activeProfile>
+  </activeProfiles>
   <!-- servers
    | This is a list of authentication profiles, keyed by the server-id used
    | within the system. Authentication profiles can be used whenever maven must
@@ -267,6 +270,29 @@ under the License.
       </properties>
     </profile>
     -->
+    <profile>
+      <id>securecentral</id>
+      <!--Override the repository (and pluginRepository) "central" from the
+         Maven Super POM -->
+      <repositories>
+        <repository>
+          <id>central</id>
+          <url>https://repo1.maven.org/maven2</url>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <id>central</id>
+          <url>https://repo1.maven.org/maven2</url>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
   </profiles>
 
   <!-- activeProfiles

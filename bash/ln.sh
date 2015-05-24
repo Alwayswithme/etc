@@ -23,4 +23,3 @@ function trylink() {
 }
 trylink .bashrc ${OLDPWD}
 trylink .bash_profile ${OLDPWD}
-trylink .bash_aliases ${OLDPWD}

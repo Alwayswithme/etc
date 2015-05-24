@@ -63,11 +63,6 @@ esac
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
 
-# User specific aliases and functions
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
-
 # tomcat path
 CATALINA_HOME=/usr/share/tomcat7
 CATALINA_BASE=/var/lib/tomcat7
@@ -100,6 +95,74 @@ set -o notify
 # set -o xtrace
 # set -o verbose
 
-for file in /etc/bash_completion.d/* ; do
+# auto completion
+completion_dir=/usr/share/bash-completion
+for file in ${completion_dir}/completions/git \
+    ${completion_dir}/bash_completion \
+    /usr/share/git/completion/git-prompt.sh
+do
     source "$file"
 done
+
+alias a=alias
+alias c=clear
+alias d=date
+alias f='free -h'
+alias r='fc -s'
+alias h=history
+# some more ls aliases
+alias l='ls -CF'
+alias ll='ls -l'
+alias la='ls -a'
+alias del='fc -s ls=rm'
+alias td='tidy -indent -quiet -wrap 72'
+alias vi='gvim -v'
+alias pt='sudo powertop --auto-tune'
+
+###############################
+# pkg management
+###############################
+
+# Arch
+     alias pl="sudo pacman -Sy"                           #update sourcelist
+     alias pu="sudo pacman -Su"                           #upgrade package
+     alias pi="sudo pacman -S"                            #install
+     alias pr="sudo pacman -R"                            #remove
+#     alias yar="sudo yum autoremove"                     #remove package no longer need
+     alias ps='pacman -Ss'
+#     alias yum='sudo yum --downloaddir=/tmp'
+
+# Fedora
+#     alias yd="sudo yum check-update"                    #update sourcelist
+#     alias yg="sudo yum --downloaddir=/tmp update"       #upgrade package
+#     alias yi="sudo yum --downloaddir=/tmp install"      #install
+#     alias yr="sudo yum remove"                          #remove
+#     alias yar="sudo yum autoremove"                     #remove package no longer need
+#     alias ys='yum search'
+#     alias yum='sudo yum --downloaddir=/tmp'
+
+# turn off screen
+alias scoff="sleep 3 && xset dpms force off"
+# clean package and configfile
+# alias cleanrc='dpkg -l |grep ^rc|awk "{print \$2}"|sudo xargs dpkg -P'
+
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    alias dir='dir --color=auto'
+    alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+###############################
+# git
+###############################
+alias gp="git push origin master"
+alias gs="git status"
+alias ga="git add ."
+alias gc="git commit -a"
+

@@ -44,7 +44,7 @@ fi
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=10000
-HISTFILESIZE=2000
+HISTFILESIZE=20000
 # Turn on parallel history
 shopt -s histappend
 history -a
