@@ -77,7 +77,7 @@ export CATALINA_BASE
 # M2=$M2_HOME/bin
 # 
 # Android
-ANDROID_HOME=/home/phoenix/dev/android/android-sdk-linux
+ANDROID_HOME=$HOME/dev/android/android-sdk-linux
 export PATH=$M2:$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 
 # shell editor
