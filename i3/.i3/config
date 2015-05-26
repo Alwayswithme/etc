@@ -10,16 +10,15 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
-set $WS1 "1: "
-set $WS2 "2: "
-set $WS3 "3: "
-set $WS4 "4: "
-set $WS5 "5: "
-set $WS6 "6: "
-set $WS7 "7: "
-set $WS8 "8   "
-set $WS9 "9   "
-set $WS0 "10  "
+
+exec --no-startup-id compton --config /home/ye/dotfiles/compton
+# Monitor setup
+exec --no-startup-id ~/.i3/monitor.sh
+# exec --no-startup-id "xrandr --output VGA1 --auto --left-of LVDS1"
+# exec --no-startup-id "xrandr --output HDMI1 --auto --above LVDS1"
+
+# Wallpaper
+# exec_always --no-startup-id nitrogen --restore
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
@@ -129,13 +128,16 @@ bindsym Mod1+m exec "audacious"
 # bindsym XF86HomePage
 # bindsym XF86Search
 
-# workspace on specific screens
-workspace $WS1 output LVDS1
-workspace $WS2 output VGA1
-workspace $WS3 output VGA1
-workspace $WS4 output VGA1
-workspace $WS7 output LVDS1
-
+set $WS1 "1: "
+set $WS2 "2: "
+set $WS3 "3: "
+set $WS4 "4: "
+set $WS5 "5: "
+set $WS6 "6: "
+set $WS7 "7: "
+set $WS8 "8   "
+set $WS9 "9   "
+set $WS0 "10  "
 
 # switch to workspace
 bindsym $mod+1 workspace $WS1
@@ -160,6 +162,17 @@ bindsym $mod+Shift+7 move container to workspace $WS7
 bindsym $mod+Shift+8 move container to workspace $WS8
 bindsym $mod+Shift+9 move container to workspace $WS9
 bindsym $mod+Shift+0 move container to workspace $WS10
+
+# workspace on specific screens
+workspace $WS1 output LVDS1
+workspace $WS5 output LVDS1
+workspace $WS7 output LVDS1
+workspace $WS2 output VGA1
+workspace $WS3 output VGA1
+workspace $WS4 output VGA1
+workspace $WS2 output HDMI1
+workspace $WS3 output HDMI1
+workspace $WS4 output HDMI1
 
 # move workspace to ouput
 bindsym $mod+Control+Left move workspace to output left
@@ -205,9 +218,8 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
     output LVDS1
-    #tray_output LVDS1
-    status_command i3status --config /home/ye/.i3/i3status.conf
     position top
+    status_command i3status --config /home/ye/.i3/i3status.conf
     colors {
         background #232323
         statusline #58ACFA
@@ -252,39 +264,47 @@ for_window [class="Eclipse"]  move to workspace "4: ", fullscreen, workspace 
 #for_window [class="jetbrains-idea"]  move container to workspace "4: "
 for_window [class="Kcalc"] floating enable
 for_window [class="Gwenview"] floating enable
-for_window [class="Clementine"] floating enable
-for_window [class="firefox"] border none
+for_window [class="Firefox"] border none
 # assign [class="Java"]  4: 
-# assign [instance="Navigator"] 2: 
 assign [class="Gvim"] $WS3
-assign [class="Clementine"] $WS5
+assign [class="Firefox" ] $WS2
+assign [class="Audacious"] $WS5
 assign [class="VirtualBox"] $WS6
-assign [class="jetbrains-idea"]  $WS4
-assign [class="Thunderbird"]  $WS7
+assign [class="jetbrains-idea"] $WS4
+assign [class="Thunderbird"] $WS7
 
-# Monitor setup
 
-exec_always --no-startup-id "xrandr --output HDMI1 --above LVDS1"
-exec_always --no-startup-id "xrandr --output HDMI1 --auto"
-
-exec_always --no-startup-id "xrandr --output VGA1 --auto"
-exec_always --no-startup-id "xrandr --output VGA1 --left-of LVDS1"
-
+# No board
 new_window 1pixel
 
-exec i3-msg restart
-# automatically startup applications
+set $Locker i3lock && sleep 1
+
+set $mode_system System (l) lock, (e) logout, (s) suspend, (r) reboot, (Shift+s) shutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id i3lock -c 000000 && sleep 1, mode "default"
+    bindsym e exec --no-startup-id i3-msg exit, mode "default"
+    bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
+    bindsym r exec --no-startup-id systemctl reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"  
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+Pause mode "$mode_system"
+
+# Automatically startup applications
 # exec_always ~/bin/startup.sh
 
 # startup application once
-# exec --no-startup-id "fcitx -d"
+exec --no-startup-id "fcitx -d"
 # exec --no-startup-id "xfce4-power-manager"
-exec --no-startup-id "gvim"
-exec --no-startup-id "thunderbird"
-exec --no-startup-id i3-msg 'workspace $WS2; exec firefox; workspace $WS1'
-exec --no-startup-id i3-sensible-terminal
-# exec_always --no-startup-id "xrandr --output VGA1 --auto --left-of LVDS1 --output HDMI1 --auto --above LVDS1"
-# exec --no-startup-id "xset dpms 3000"
+# exec --no-startup-id "gvim"
+# exec --no-startup-id "thunderbird"
+exec --no-startup-id "firefox"
+# 
+# exec --no-startup-id i3-msg "workspace 1; exec urxvt"
+exec --no-startup-id i3-msg 'workspace number 1; exec urxvt'
 
-exec --no-startup-id compton --config /home/ye/dotfiles/compton
-exec --no-startup-id nitrogen --restore
+# exec --no-startup-id "xset dpms 3000"

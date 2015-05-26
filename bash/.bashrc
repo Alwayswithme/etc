@@ -83,7 +83,7 @@ export PATH=$M2:$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 # shell editor
 export EDITOR=/usr/bin/vim
 export FCEDIT=/usr/bin/vim
-export VISUAL=/usr/bin/vim
+export VISUAL=/usr/bin/gvim
 export PAGER=less
 
 # 1, Shell options

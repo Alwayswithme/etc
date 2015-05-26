@@ -1,0 +1,2 @@
+# /etc/udev/rules.d/70-disable_wol.rules
+ACTION=="add", SUBSYSTEM=="net", KERNEL=="en*", RUN+="/usr/bin/ethtool -s %k wol d"
