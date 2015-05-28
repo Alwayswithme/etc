@@ -1,3 +1,3 @@
 # /etc/udev/rules.d/70-wifi-powersave.rules
-
+ACTION=="add", SUBSYSTEM=="net", KERNEL=="e*", RUN+="/usr/bin/ethtool -s %k wol d"
 ACTION=="add", SUBSYSTEM=="net", KERNEL=="wlan*", RUN+="/usr/bin/iw dev %k set power_save on"

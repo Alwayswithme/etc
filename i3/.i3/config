@@ -184,7 +184,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+# bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 bindsym $mod+m move scratchpad
 bindsym $mod+Shift+m scratchpad show
@@ -292,18 +292,18 @@ mode "$mode_system" {
     bindsym Escape mode "default"
 }
 
-bindsym $mod+Pause mode "$mode_system"
+bindsym $mod+Shift+e mode "$mode_system"
 
 # Automatically startup applications
 # exec_always ~/bin/startup.sh
 
 # startup application once
 exec --no-startup-id "fcitx -d"
+exec --no-startup-id "numlock &"
 # exec --no-startup-id "xfce4-power-manager"
 # exec --no-startup-id "gvim"
 # exec --no-startup-id "thunderbird"
 exec --no-startup-id "firefox"
-# 
 # exec --no-startup-id i3-msg "workspace 1; exec urxvt"
 exec --no-startup-id i3-msg 'workspace number 1; exec urxvt'
 
