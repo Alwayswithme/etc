@@ -36,7 +36,7 @@ if &t_Co > 16 || has("gui_running")
   set hlsearch
   au BufReadPost *.twig colorscheme koehler 
   au BufReadPost *.css colorscheme slate 
-  au BufReadPost *.js colorscheme elflord 
+  au BufReadPost *.js colorscheme vividchalk
   au BufReadPost *.py colorscheme molokai
   au BufReadPost *.html colorscheme molokai
   au BufReadPost *.java colorscheme molokai
@@ -116,6 +116,10 @@ set expandtab             "use space for tab
 set softtabstop=4         "4 spaces transfer 1 tab
 set shiftwidth=4          "indent 4 spaces
 
+"""" auto-complete
+set wildmenu
+set wildmode=list:longest
+set completeopt=longest,menuone
 "The following three lines map Ctrl+s to save in vi.  You can comment 
 "these out, it has nothing to do with syntax highlighting or colors.
 :nmap <c-s> :w<CR>
