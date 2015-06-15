@@ -63,12 +63,6 @@ esac
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
 
-# tomcat path
-CATALINA_HOME=/usr/share/tomcat7
-CATALINA_BASE=/var/lib/tomcat7
-export CATALINA_HOME
-export CATALINA_BASE
-
 # java and maven
 # JAVA_HOME=/home/phoenix/jdk1.6.0_29
 # export JAVA_HOME
@@ -77,8 +71,11 @@ export CATALINA_BASE
 # M2=$M2_HOME/bin
 # 
 # Android
-ANDROID_HOME=$HOME/dev/android/android-sdk-linux
-export PATH=$M2:$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+# ANDROID_HOME=$HOME/dev/android/android-sdk-linux
+# export PATH=$M2:$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+
+Activator=${HOME}/Documents/activator-1.3.4
+export PATH=$Activator:$PATH
 
 # shell editor
 export EDITOR=/usr/bin/vim
