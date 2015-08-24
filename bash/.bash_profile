@@ -52,12 +52,6 @@ history -a
 shopt -s checkwinsize
 
 # User specific environment and startup programs
-PATH=$PATH:$HOME/.local/bin:$HOME/bin
+PATH=$PATH:$HOME/bin
 
 export PATH
-
-# # input method
-# export GTK_IM_MODULE=fcitx
-# export QT_IM_MODULE=fcitx
-# export XMODIFIERS="@im=fcitx"
-# fcitx -d

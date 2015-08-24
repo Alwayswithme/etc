@@ -18,7 +18,7 @@ function trylink() {
   then
     ln -ns $2/$1
   else
-    error "file exist, not a symlink"
+    error "file: $1 exist, not a symlink"
   fi
 }
 trylink .bashrc ${OLDPWD}
