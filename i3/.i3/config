@@ -11,11 +11,10 @@
 
 set $mod Mod4
 
-exec --no-startup-id compton --config /home/ye/dotfiles/compton
+# exec --no-startup-id compton --config /home/ye/dotfiles/compton
+
 # Monitor setup
 exec --no-startup-id ~/.i3/monitor.sh
-# exec --no-startup-id "xrandr --output VGA1 --auto --left-of LVDS1"
-# exec --no-startup-id "xrandr --output HDMI1 --auto --above LVDS1"
 
 # Wallpaper
 # exec_always --no-startup-id nitrogen --restore
@@ -121,8 +120,9 @@ bindsym Mod1+f exec "thunar"
 bindsym Mod1+g exec "gvim"
 bindsym Mod1+v exec "vlc"
 bindsym $mod+o exec "okular"
-bindsym Print exec "ksnapshot"
+bindsym Print exec "xfce4-screenshooter -r"
 bindsym Mod1+m exec "audacious"
+bindsym Mod1+i exec "~/bin/idea"
 # bindsym XF86Favorites
 # bindsym XF86Mail
 # bindsym XF86HomePage
@@ -131,8 +131,8 @@ bindsym Mod1+m exec "audacious"
 set $WS1 "1: "
 set $WS2 "2: "
 set $WS3 "3: "
-set $WS4 "4: "
-set $WS5 "5: "
+set $WS4 "4: "
+set $WS5 "5: "
 set $WS6 "6: "
 set $WS7 "7: "
 set $WS8 "8   "
