@@ -1,0 +1,1 @@
+ACTION=="change", SUBSYSTEM=="drm", KERNEL=="card*", RUN+="/usr/bin/echo `date` >> /tmp/drm.log"
