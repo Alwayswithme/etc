@@ -170,3 +170,7 @@ vmap <C-c> "+yi
 vmap <C-x> "+c
 vmap <C-v> c<ESC>"+p
 imap <C-v> <C-r><C-o>+
+
+" encoding
+set encoding=utf-8
+set fileencodings=utf-8,gb18030,big5,latin1
