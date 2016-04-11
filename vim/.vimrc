@@ -2,47 +2,207 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
-" allow backspacing over everything in insert mode
-set backspace=indent,eol,start
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Vundle
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'sjl/badwolf'
+
+Plugin 'tpope/vim-fugitive'
+
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => General
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Sets how many lines of history VIM has to remember
+set history=500
+
+" Enable filetype plugins
+filetype plugin on
+filetype indent on
+
+" Set to auto read when a file is changed from the outside
+set autoread
+
+" With a map leader it's possible to do extra key combinations
+" like <leader>w saves the current file
+let mapleader = ","
+let g:mapleader = ","
+
+" Fast saving
+nmap <leader>w :w!<cr>
+
+" :W sudo saves the file
+" (useful for handling the permission-denied error)
+command! W w !sudo tee % > /dev/null
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => VIM user interface
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Set 7 lines to the cursor - when moving vertically using j/k
+set scrolloff=7
+
+" Avoid garbled characters in Chinese language windows OS
+let $LANG='en'
+set langmenu=en
+source $VIMRUNTIME/delmenu.vim
+source $VIMRUNTIME/menu.vim
+
+" Turn on the WiLd menu
+set wildmenu
+
+" Ignore compiled files
+set wildignore=*.o,*~,*.pyc,*.class
+if has("win16") || has("win32")
+    set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
+else
+    set wildignore+=.git\*,.hg\*,.svn\*
+endif
+
+"Always show current position
+set ruler
+
+" Height of the command bar
+" set cmdheight=2
+
+" A buffer becomes hidden when it is abandoned
+set hid
+
+" Configure backspace so it acts as it should act
+set backspace=eol,start,indent
+set whichwrap+=<,>,h,l
+
+" Ignore case when searching
+set ignorecase
+
+" When searching try to be smart about cases
+set smartcase
+
+" Highlight search results
+set hlsearch
+
+" Makes search act like search in modern browsers
+set incsearch
+
+" Don't redraw while executing macros (good performance config)
+set lazyredraw
+
+" For regular expressions turn magic on
+set magic
+
+" Show matching brackets when text indicator is over them
+set showmatch
+" How many tenths of a second to blink when matching brackets
+set mat=2
+
+" No annoying sound on errors
+set noerrorbells
+set novisualbell
+set t_vb=
+set tm=500
+
+" Add a bit extra margin to the left
+set foldcolumn=1
 
 set nobackup            " do not keep a backup file, use versions instead
-set history=100         " keep 50 lines of command line history
-set ruler               " show the cursor position all the time
 set showcmd             " display incomplete commands
-set incsearch           " do incremental searching
 
-" Don't use Ex mode, use Q for formatting
-map Q gq
+
+""""""""""""""""""""""""""""""
+" => Status line
+""""""""""""""""""""""""""""""
+" Always show the status line
+set laststatus=2
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Colors and Fonts
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Enable syntax highlighting
+syntax enable
+
+set background=dark
+
+" Set extra options when running in GUI mode
+if has("gui_running")
+    set guioptions-=m         "turn off menu bar
+    set guioptions-=T
+    set guioptions-=L         "turn off scroll bar
+    set guioptions-=e
+    set t_Co=256
+    set guitablabel=%M\ %t
+    set guifont=monospace\ 12
+else
+    if &term == 'xterm' || &term == 'screen'
+       set t_Co=256            " Enable 256 colors to stop the CSApprox warning and make xterm vim shine
+    endif
+endif
+
+try
+    colorscheme badwolf
+catch
+endtry
+
+let g:airline_theme='badwolf'
+
+" Set utf8 as standard encoding and en_US as the standard language
+set encoding=utf8
+
+" Use Unix as the standard file type
+set ffs=unix,dos,mac
+set fileencodings=utf-8,gb18030,big5,latin1
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Text, tab and indent related
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Use spaces instead of tabs
+set expandtab
+
+" Be smart when using tabs ;)
+set smarttab
+
+" 1 tab == 4 spaces
+set shiftwidth=4
+set tabstop=4
+set softtabstop=4         "4 spaces transfer 1 tab
+
+" Linebreak on 500 characters
+set linebreak
+set tw=500
+
+set autoindent "Auto indent
+set smartindent "Smart indent
+set wrap "Wrap lines
+
+
+""""""""""""""""""""""""""""""
+" => Visual mode related
+""""""""""""""""""""""""""""""
+" Visual mode pressing * or # searches for the current selection
+" Super useful! From an idea by Michael Naumann
+vnoremap <silent> * :call VisualSelection('f', '')<CR>
+vnoremap <silent> # :call VisualSelection('b', '')<CR>
+
 
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
-
-" When started as "evim", evim.vim will already have done these settings.
-if v:progname =~? "evim"
-  finish
-endif
-
-set t_Co=256
-set background=dark
-colo molokai
-
-"colorscheme badwolf
-
-" Switch syntax highlighting on, when the terminal has colors
-" Also switch on highlighting the last used search pattern.
-if &t_Co > 16 || has("gui_running")
-  syntax on
-  set hlsearch
-  au BufReadPost *.twig colorscheme koehler 
-  au BufReadPost *.css colorscheme slate 
-  au BufReadPost *.js colorscheme vividchalk
-  au BufReadPost *.py colorscheme molokai
-  au BufReadPost *.html colorscheme molokai
-  au BufReadPost *.java colorscheme molokai
-  au BufReadPost *.php colorscheme two2tango
-
-endif
 
 " In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
@@ -76,7 +236,7 @@ if has("autocmd")
     \ endif
 
   augroup END
-  
+
 else
   set autoindent           "always set autoindenting on
 endif " has("autocmd")
@@ -93,38 +253,18 @@ endif
 "set textwidth=80          "textwidth beyond 80
 set wrap                  "warp
 set number                "show line numbers
-set scrolloff=5           "enable context
-set showmatch             "highligh brackets
 set sidescroll=10         "scroll horizontally
 set whichwrap=b,s,<,>     "specified keys move the cursor
 set colorcolumn=80        "visible print margin indicator
 set formatoptions+=Mmtn
 set list                  "show tab
-set listchars=tab:>>,trail:-   "tab=> space= 
+set listchars=tab:>>,trail:-   "tab=> space=-
 set cursorline
-
-""""  about search
-set hlsearch              "highlight search
-set smartcase
-set ignorecase            "ignore character case in search mode
-
-""""  about indent
-set smarttab
-set smartindent           "smartindent
-set linebreak             "linebreak
-set expandtab             "use space for tab
-set softtabstop=4         "4 spaces transfer 1 tab
-set shiftwidth=4          "indent 4 spaces
 
 """" auto-complete
 set wildmenu
 set wildmode=list:longest
 set completeopt=longest,menuone
-"The following three lines map Ctrl+s to save in vi.  You can comment 
-"these out, it has nothing to do with syntax highlighting or colors.
-:nmap <c-s> :w<CR>
-:imap <c-s> <Esc>:w<CR>a
-:imap <c-s> <Esc><c-s>
 
 "mapping
 "use jj to change to Normal mode
@@ -152,15 +292,8 @@ nmap <F5> :%s/\s*$//<CR>:nohl<CR>
 "F6 delete dupucate blank line
 nmap <F6> :g/^\n$/d<CR>
 
-" Abbreviations
-iabbrev phx~ Phoenix Ye
 
 """ gvim option
-set guioptions-=m         "turn off menu bar
-set guioptions-=T         "turn off toolbar
-set guioptions-=L         "turn off scroll bar
-set guifont=monospace\ 12
-
 " netrw setting
 let g:netrw_winsize= 80
 let g:netrw_liststyle= 3
@@ -172,6 +305,27 @@ vmap <C-x> "+c
 vmap <C-v> c<ESC>"+p
 imap <C-v> <C-r><C-o>+
 
-" encoding
-set encoding=utf-8
-set fileencodings=utf-8,gb18030,big5,latin1
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Helper functions
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! VisualSelection(direction, extra_filter) range
+    let l:saved_reg = @"
+    execute "normal! vgvy"
+
+    let l:pattern = escape(@", '\\/.*$^~[]')
+    let l:pattern = substitute(l:pattern, "\n$", "", "")
+
+    if a:direction == 'b'
+        execute "normal ?" . l:pattern . "^M"
+    elseif a:direction == 'gv'
+        call CmdLine("Ag \"" . l:pattern . "\" " )
+    elseif a:direction == 'replace'
+        call CmdLine("%s" . '/'. l:pattern . '/')
+    elseif a:direction == 'f'
+        execute "normal /" . l:pattern . "^M"
+    endif
+
+    let @/ = l:pattern
+    let @" = l:saved_reg
+endfunction
