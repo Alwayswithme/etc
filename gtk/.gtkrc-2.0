@@ -1,14 +1,13 @@
 # File created by KDE Gtk Config
 # Configs for GTK2 programs 
 
-include "/usr/share/themes/Numix/xfce-notify-4.0/gtkrc"
 style "user-font" 
 {
 	font_name="Source Sans Pro Semibold"
 }
 widget_class "*" style "user-font"
 gtk-font-name="Source Sans Pro Semibold 11"
-gtk-theme-name="Numix-ArchBlue"
+gtk-theme-name="Adwaita"
 gtk-icon-theme-name="Numix-Circle"
 gtk-fallback-icon-theme="Numix"
 gtk-toolbar-style=GTK_TOOLBAR_ICONS

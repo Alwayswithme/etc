@@ -14,7 +14,7 @@ set $mod Mod4
 # exec --no-startup-id compton --config /home/ye/dotfiles/compton
 
 # Monitor setup
-exec --no-startup-id ~/.i3/monitor.sh
+exec --no-startup-id ~/.config/i3/monitor.sh
 
 # Wallpaper
 # exec_always --no-startup-id nitrogen --restore
@@ -37,11 +37,11 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
+# bindsym $mod+d exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # next/previous workspace
 bindsym Mod1+Tab focus right
@@ -114,15 +114,17 @@ bindsym XF86AudioPlay exec "audacious -t"
 
 # shortcut
 bindsym XF86Calculator exec "kcalc"
-bindsym XF86Explorer exec "firefox"
 bindsym XF86Mail exec "thunderbird"
 bindsym Mod1+f exec "thunar"
 bindsym Mod1+g exec "gvim"
 bindsym Mod1+v exec "vlc"
 bindsym $mod+o exec "okular"
-bindsym Print exec "xfce4-screenshooter -r"
+bindsym Print exec "xfce4-screenshooter"
 bindsym Mod1+m exec "audacious"
 bindsym Mod1+i exec "~/bin/idea"
+bindsym Mod1+b exec "firefox"
+bindsym Mod1+c exec "chromium"
+bindsym XF86Explorer exec "firefox"
 # bindsym XF86Favorites
 # bindsym XF86Mail
 # bindsym XF86HomePage
@@ -175,6 +177,11 @@ workspace $WS3 output HDMI1
 workspace $WS4 output HDMI1
 
 # move workspace to ouput
+bindsym $mod+Control+h move workspace to output left
+bindsym $mod+Control+l move workspace to output right
+bindsym $mod+Control+j move workspace to output up
+bindsym $mod+Control+k move workspace to output down
+# move workspace to ouput
 bindsym $mod+Control+Left move workspace to output left
 bindsym $mod+Control+Right move workspace to output right
 bindsym $mod+Control+Up move workspace to output up
@@ -218,25 +225,9 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
     output LVDS1
-    position top
-    status_command i3status --config /home/ye/.i3/i3status.conf
-    colors {
-        background #232323
-        statusline #58ACFA
-        separator #232323
-
-        focused_workspace  #4c7899 #285577 #A9F5F2
-        active_workspace   #333333 #5f676a #58ACFA
-        inactive_workspace #333333 #222222 #888888
-        urgent_workspace   #2f343a #900000 #ffffff
-    }
-}
-
-bar {
     output VGA1
-    output HDMI1
-    status_command i3status --config /home/ye/.i3/i3status.conf
     position top
+    status_command i3status --config /home/ye/.config/i3/i3status.conf
     colors {
         background #232323
         statusline #58ACFA
@@ -247,10 +238,6 @@ bar {
         inactive_workspace #333333 #222222 #888888
         urgent_workspace   #2f343a #900000 #ffffff
     }
-#     colors{
-#         background #232323
-#         statusline #DCDCDC
-#     }
 }
 
 hide_edge_borders both
@@ -303,7 +290,6 @@ exec --no-startup-id "numlockx &"
 # exec --no-startup-id "xfce4-power-manager"
 # exec --no-startup-id "gvim"
 # exec --no-startup-id "thunderbird"
-exec --no-startup-id "firefox"
 exec --no-startup-id i3-msg 'workspace number 1; exec xfce4-terminal'
 
 # exec --no-startup-id "xset dpms 3000"

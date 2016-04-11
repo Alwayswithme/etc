@@ -146,6 +146,7 @@ set <A-f>=f
 nmap <A-f> gg=G``
 "z{ to fold a block
 nmap z{ zfa{
+nmap <F7> :%s/\r$//g<CR>:nohl<CR>
 "F5 delete trailing blank
 nmap <F5> :%s/\s*$//<CR>:nohl<CR>
 "F6 delete dupucate blank line
