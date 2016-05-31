@@ -12,8 +12,9 @@
 case "$TERM" in
     xterm-color) color_prompt=yes;;
 esac
-
-# TERM=xterm-256color
+if [ "$COLORTERM" == "xfce4-terminal" ] ; then
+    export TERM=xterm-256color
+fi
 set_prompt () {
     local Last_Command=$? # Must come first!
 
@@ -51,7 +52,7 @@ set_prompt () {
     # the text color to the default.
     PS1+="$Blue\$ $Reset"
 }
-PROMPT_COMMAND='set_prompt'
+# PROMPT_COMMAND='set_prompt'
 
 # If not running interactively, don't do anything
 case $- in
@@ -163,3 +164,4 @@ alias gs="git status"
 alias ga="git add ."
 alias gc="git commit -a"
 
+source ~/.shell_promt.sh

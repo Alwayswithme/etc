@@ -144,12 +144,17 @@ if has("gui_running")
     set guioptions-=T
     set guioptions-=L         "turn off scroll bar
     set guioptions-=e
+    set guioptions-=r
+    set guioptions-=R
+    set guioptions-=l
     set t_Co=256
     set guitablabel=%M\ %t
     set guifont=monospace\ 12
 else
-    if &term == 'xterm' || &term == 'screen'
-       set t_Co=256            " Enable 256 colors to stop the CSApprox warning and make xterm vim shine
+    if &term == 'xterm' || &term == 'screen' || &term == 'xterm-256color'
+        set t_Co=256            " Enable 256 colors to stop the CSApprox warning and make xterm vim shine
+    else
+        set t_Co=16
     endif
 endif
 
