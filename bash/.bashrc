@@ -75,9 +75,6 @@ HISTCONTROL=ignoreboth
 # ANDROID_HOME=$HOME/dev/android/android-sdk-linux
 # export PATH=$M2:$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 
-Activator=${HOME}/Documents/activator-1.3.4
-export PATH=$Activator:$PATH
-
 # shell editor
 export EDITOR=/usr/bin/vim
 export FCEDIT=/usr/bin/vim
