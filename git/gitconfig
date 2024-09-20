@@ -1,14 +1,10 @@
 [user]
 	name = Alwayswithme
 	email = phx13ye@gmail.com
-[core]
-	autocrlf = input
-	editor = vim
-	excludesfile = /home/phoenix/gitignore
-[push]
-	default = simple
-[merge]
-	tool = vimdiff
+#[core]
+#	autocrlf = input
+#	editor = vim
+#	excludesfile = /home/phoenix/gitignore
 [alias]
 	co = checkout
 	br = branch
