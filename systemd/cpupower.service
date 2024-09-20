@@ -8,7 +8,6 @@ After=syslog.target display-manager.service graphical.target
 Type=oneshot
 RemainAfterExit=yes
 EnvironmentFile=/etc/sysconfig/cpupower
-ExecStart=/bin/mentohust
 ExecStart=/usr/bin/cpupower $CPUPOWER_FREQ_SET
 ExecStop=/usr/bin/cpupower $CPUPOWER_STOP_OPTS
 
