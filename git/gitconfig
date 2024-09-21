@@ -1,6 +1,7 @@
 [user]
 	name = Alwayswithme
 	email = phx13ye@gmail.com
+	signingkey = /home/ye/.ssh/id_ed25519.pub
 #[core]
 #	autocrlf = input
 #	editor = vim
@@ -15,3 +16,5 @@
 	ui = true
 [help]
 	autocorrect = 1
+[gpg]
+	format = ssh

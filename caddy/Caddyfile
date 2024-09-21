@@ -1,0 +1,24 @@
+{
+	email phx13ye@gmail.com
+}
+
+portainer.{$DOMAIN:localhost} {
+	reverse_proxy portainer:9000
+}
+
+immich.{$DOMAIN:localhost} {
+	reverse_proxy immich-server:3001
+}
+
+{$DOMAIN:localhost}/code/* {
+	# Set this path to your site's directory.
+	#root * /srv
+
+	# Enable the static file server.
+	#file_server browse
+	#tls internal
+
+	# Another common task is to set up a reverse proxy:
+	uri strip_prefix /code
+	reverse_proxy host.docker.internal:8080
+}
