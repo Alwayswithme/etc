@@ -1,1 +1,5 @@
-caddy/.env
+**/caddy/**/*.env
+**/duckdns/duck.log
+**/duckdns/**/*.env
+**/qinglong/data/
+letsencrypt/

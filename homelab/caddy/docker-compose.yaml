@@ -1,0 +1,12 @@
+services:
+  caddy:
+    image: caddy:alpine
+    restart: unless-stopped
+    ports:
+      - "1818:1818"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - ~/Downloads/gao:/srv
+    env_file:
+      - .env
+

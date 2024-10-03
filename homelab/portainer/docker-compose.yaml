@@ -1,16 +1,19 @@
 services:
   portainer:
     image: portainer/portainer-ce:alpine
+    container_name: portainer
     restart: unless-stopped
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - data:/data 
     networks:
-      - caddy_app_network
+      - gateway_default
+    ports:
+      - "9443:9443"
 
 volumes:
   data:
 
 networks:
-  caddy_app_network:
+  gateway_default:
     external: true
