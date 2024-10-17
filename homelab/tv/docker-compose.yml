@@ -1,0 +1,28 @@
+services:
+  watchtower:
+    image: containrrr/watchtower
+    container_name: watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      WATCHTOWER_SCHEDULE: "0 0 2 * * *"
+      WATCHTOWER_CLEANUP: true
+    restart: unless-stopped
+    command: allinone
+
+  allinone:
+    image: youshandefeiyang/allinone
+    container_name: allinone
+    restart: unless-stopped
+    ports:
+      - "35455:35455"
+    privileged: true
+
+  caddy:
+    image: caddy:alpine
+    restart: unless-stopped
+    ports:
+      - "1818:1818"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - /home/ye/Downloads/gao:/srv

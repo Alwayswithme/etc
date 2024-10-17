@@ -22,7 +22,7 @@ sudo ufw allow 8096
 ip -6 addr | grep inet6 | grep 'global dynamic' | awk -F '[ \t]+|/' '$3 == "::1" { next;} $3 ~ /^fe80::/ { next;} /inet6/ {print $3}'
 
 crontab -e 
-*/5 * * * * source /path/to/.env && /path/to/duck.sh your_domain your_token
+*/5 * * * * . /path/to/.env && /path/to/duck.sh your_domain your_token
 ```
 
 ## Docker bridge network IPV6
@@ -39,3 +39,9 @@ crontab -e
    9   │   ]
   10   │ }
   11   │ 
+
+
+## remove qinglong Sentry
+```bash
+docker exec qinglong-web-1 sed -i '/Sentry\.init/ s/^/return;/' /ql/static/build/loaders/sentry.js
+```
