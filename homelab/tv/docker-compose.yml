@@ -17,6 +17,7 @@ services:
     ports:
       - "35455:35455"
     privileged: true
+    command: -tv=true -aesKey='${AES_KEY}' -userid='${USERID}' -token='${TOKEN}'
 
   caddy:
     image: caddy:alpine
