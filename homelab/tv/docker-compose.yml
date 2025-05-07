@@ -18,12 +18,3 @@ services:
       - "35455:35455"
     privileged: true
     command: -tv=true -aesKey='${AES_KEY}' -userid='${USERID}' -token='${TOKEN}'
-
-  caddy:
-    image: caddy:alpine
-    restart: unless-stopped
-    ports:
-      - "1818:1818"
-    volumes:
-      - ./Caddyfile:/etc/caddy/Caddyfile
-      - /home/ye/Downloads/gao:/srv
