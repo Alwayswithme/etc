@@ -1,0 +1,15 @@
+services:
+  sun-panel:
+    image: "hslr/sun-panel:latest"
+    container_name: sun-panel
+    volumes:
+      - /mnt/sun-panel/config:/app/conf
+      - /var/run/docker.sock:/var/run/docker.sock # 挂载docker.sock
+      # - ./runtime:/app/runtime # 挂载日志目录
+    restart: unless-stopped
+    networks:
+      - gateway_default
+
+networks:
+  gateway_default:
+    external: true

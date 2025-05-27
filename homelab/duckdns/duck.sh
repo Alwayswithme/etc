@@ -2,7 +2,7 @@
 DOMAIN=$1
 token=$2
 LOG_FILE=~/etc/homelab/duckdns/duck.log
-ip=$(ip -6 addr | grep inet6 | grep 'global dynamic' | awk -F '[ \t]+|/' '$3 == "::1" { next;} $3 ~ /^fe80::/ { next;} /inet6/ {print $3}')
+ip=$(ip -6 addr show br0 | awk '/inet6.*global dynamic/{addr=$2; getline; print addr, $4}' | sort -k2 -n | tail -n 1 |  awk '{print substr($1, 1, length($1)-3)}')
 duckdns_host=https://www.duckdns.org
 
 last_ip=$(tail -n 2 $LOG_FILE | head -n 1 | awk '{print $NF}')
